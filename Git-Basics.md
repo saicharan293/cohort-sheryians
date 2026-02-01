@@ -20,3 +20,22 @@ git config --global credential.helper store
 git config --list
 
 ----------------------------
+
+# Navigate to your project directory
+cd path/to/your/project
+
+# Initialize a new Git repository
+git init
+
+# Check the status of your files
+git status
+
+# Add all files to the staging area
+git add .
+
+# Commit the changes with a message
+git commit -m "Initial commit"
+
+# Check the status again to see the changes
+git status
+--------------------
