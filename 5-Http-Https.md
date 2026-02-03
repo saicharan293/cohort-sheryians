@@ -54,6 +54,26 @@
 2. He set up the "B" in such a way, what every he searches through "A", pass through the Browser of "B" allowing restriction by pass.
 3. Machine "B" is `Proxy` server
 
+# Flow of Proxy:
+---------------
+
+When a device connects to a Wi-Fi router (LAN), it receives a private IP address from the router using DHCP (Dynamic Host Configuration Protocol).
+
+When the device searches for a website URL, the request goes through the router to the internet. The website sees the public IP of your router, not your private IP.
+
+To mask your public IP, you can connect your device to a proxy server. The proxy server fetches the website on your behalf and sends the results back to your device.
+
+From the website’s perspective, the request comes from the proxy’s IP, not your router’s IP.
+
+`Without Proxy`:
+
+Mobile/Laptop → Wi-Fi Router (Private IP: 192.168.1.12 / Public IP: 100.50.23.12) → Internet → Website
+
+`With Proxy`:
+Mobile/Laptop → Wi-Fi Router → Proxy Server (Public IP: 54.23.12.45) → Internet → Website
+
+
+
 `Reverse Proxy`:
 ----------------
 These are the machines(servers) that routes the traffic to other servers
@@ -82,4 +102,10 @@ Customers (Clients): Only interact with the front desk, not directly with the wo
 # VPN (Virtual Private Network):
 ---------------------------------
 1. It does the proxy (routing) at Device Level
-2.
+
+Device ⇄ VPN Server
+
+Device → Router → ISP → (Encrypted Tunnel) → VPN Server → Internet → Website
+
+the website assumes that the VPN server is in Germany
+(the router is completely invisible to the website)
