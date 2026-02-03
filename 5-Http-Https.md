@@ -79,6 +79,12 @@ Mobile/Laptop → Wi-Fi Router → Proxy Server (Public IP: 54.23.12.45) → Int
 These are the machines(servers) that routes the traffic to other servers
 It retrieves data on behalf of client from one or more servers
 
+`Work flow`:
+------------
+1. So Proxy works for the Client side.
+2. Reverse proxy is a server that collects the data from the client and pass onto the reliable and respective server.
+3. A reverse proxy is a server that sits in front of one or more servers and receives requests on their behalf.
+
 # How Reverse Proxy Works :
 -------------------------
 1. Client Request: A client (like your web browser) sends a request to access a resource.
@@ -99,6 +105,22 @@ Front Desk (Reverse Proxy): Handles all incoming requests from customers.
 Workers (Servers): Process the requests and send back responses.
 Customers (Clients): Only interact with the front desk, not directly with the workers.
 
+`Note`: A forward proxy is a client-side intermediary used to hide or control client requests, while a reverse proxy is a server-side intermediary used to protect, manage, and scale backend servers.
+
+`EX`:
+
+User → Cloudflare (Reverse Proxy) → Web Server
+
+User → Reverse Proxy → Server A
+                    → Server B
+                    → Server C
+The user sees one website, but traffic is spread across servers.
+
+User → API Gateway (Reverse Proxy) → Auth Service
+                                  → Payment Service
+                                  → Product Service
+
+
 # VPN (Virtual Private Network):
 ---------------------------------
 1. It does the proxy (routing) at Device Level
@@ -109,3 +131,17 @@ Device → Router → ISP → (Encrypted Tunnel) → VPN Server → Internet →
 
 the website assumes that the VPN server is in Germany
 (the router is completely invisible to the website)
+
+When using a VPN, the website does not see the user’s router at all; it only sees the VPN server’s IP and assumes the user is located where that VPN server is (e.g., Germany)
+
+# Simple analogy:
+-------------------
+
+`Forward Proxy`
+You ask a friend to talk to the outside world for you.
+
+`VPN`
+You move into your friend’s house and use their address.
+
+`Reverse Proxy`
+A company receptionist receives visitors and directs them to the right employee.
