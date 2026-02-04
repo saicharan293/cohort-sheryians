@@ -44,17 +44,25 @@ git status
 ----------------
 
 # Working Directory:
-
+`git init`: to initiate version control on the file
 1. This is where you actually work on your project. It contains all the files and folders of your project.
 2. Any changes you make to files (edit, delete, or create new files) happen here.
 3. Think of it as your working area.
+4. Apply git add <--file name--> to move changes(changed files) to Staging Area
 
-# Staging Area (Index) : git add .... git commit -m "--msg"
+# Staging Area (Index) : 
 
 1. Also known as the staging area or index, this is a place where you stage changes before committing them.
 2. When you use git add, you move changes from your working directory to the staging area.
 3. The staging area holds the changes you are ready to commit. It’s like a holding area for your next commit.
 4. You can review and modify the staged changes before making a commit.
+5. Apply git commit -m "--msg--" to move changes(changed files) to Local Repository
+
+`Repository`: stores info about what changes are done, who did those changes and when did they update those changes.
+
+# Local Repository:
+
+1. changes are saved in `.git` folder in local system.
 
 
 # Git Repository:
