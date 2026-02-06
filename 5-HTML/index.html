@@ -3,32 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HTML Tags Explained</title>
 </head>
-<body style="background: black; color: white;">
-    <form>
-        <input type="text" placeholder="write your name">
-        <input type="email" placeholder="Enter your email">
-        <br>
-        <input type="datetime-local" ><br>
-        <input type="week" ><br>
-        <input type="month" ><br>
-        <input type="color" ><br>
-<br>
-        <input id="male" name="gender" type="radio">
-        <label for="male">Male</label> 
-        <input id="female" name="gender" type="radio"> 
-        <label for="female">Female</label> 
 
-        <input name="gender" type="radio"> Other
+<body>
 
+    <h1>📘 HTML Tags Explained</h1>
+    <p>
+        This page explains commonly used HTML tags using only pure HTML.
+        No CSS is used. The beauty comes from proper structure and semantic tags.
+    </p>
 
-        <br>
+    <hr>
 
-        <input id="ck" type="checkbox">
-        <label for="ck">Agree terms and conditions</label>
-        <br>
-        <button>submit</button>
-    </form>
+    <h2>1. Document Structure Tags</h2>
+
+    <details open>
+        <summary>&lt;!DOCTYPE html&gt;</summary>
+        <p>
+            Declares the document type and version of HTML.
+            It tells the browser that this document follows HTML5 standards.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;html&gt;</summary>
+        <p>
+            The root element of an HTML page.
+            All other elements are placed inside this tag.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;head&gt;</summary>
+        <p>
+            Contains metadata like title, character encoding, viewport settings,
+            and links to external resources.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;body&gt;</summary>
+        <p>
+            Contains all the visible content of the webpage such as text, images,
+            forms, and buttons.
+        </p>
+    </details>
+
+    <hr>
+
+    <h2>2. Head Tags (Inside &lt;head&gt;)</h2>
+
+    <p>
+        Head tags provide information about the webpage to browsers and search engines.
+        These tags do not appear directly on the page.
+    </p>
+
+    <details open>
+        <summary>&lt;meta charset="UTF-8"&gt;</summary>
+        <p>
+            Specifies the character encoding for the document.
+            UTF-8 supports most languages, symbols, and emojis.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;meta name="viewport"&gt;</summary>
+        <p>
+            Controls how the webpage is displayed on different screen sizes.
+            It is essential for responsive and mobile-friendly design.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;title&gt;</summary>
+        <p>
+            Defines the title of the webpage.
+            It appears in the browser tab, bookmarks, and search engine results.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;meta name="description"&gt;</summary>
+        <p>
+            Provides a short description of the webpage.
+            Search engines may display this in search results.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;link&gt;</summary>
+        <p>
+            Used to connect external resources like CSS files, icons (favicon),
+            or fonts to the HTML document.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;style&gt;</summary>
+        <p>
+            Allows writing internal CSS inside the HTML document.
+            Useful for small styling rules.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;script&gt;</summary>
+        <p>
+            Used to add JavaScript code or external JavaScript files.
+            Scripts in the head often use the <code>defer</code> attribute.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;base&gt;</summary>
+        <p>
+            Defines a base URL for all relative links in the document.
+        </p>
+    </details>
+
+    <hr>
+
+    <h2>3. Text & Heading Tags</h2>
+
+    <details>
+        <summary>&lt;h1&gt; to &lt;h6&gt;</summary>
+        <p>
+            Used for headings. &lt;h1&gt; is the most important heading and
+            &lt;h6&gt; is the least important.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;p&gt;</summary>
+        <p>
+            Used to define a paragraph of text.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;br&gt;</summary>
+        <p>
+            Inserts a line break without starting a new paragraph.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;hr&gt;</summary>
+        <p>
+            Creates a horizontal line, often used to separate sections.
+        </p>
+    </details>
+
+    <hr>
+
+    <h2>4. Form Tags</h2>
+
+    <fieldset>
+        <legend>Form Elements</legend>
+
+        <details>
+            <summary>&lt;form&gt;</summary>
+            <p>
+                Used to collect user input and send data to a server.
+            </p>
+        </details>
+
+        <details>
+            <summary>&lt;input&gt;</summary>
+            <p>
+                Used to take user input. It supports many types like text,
+                email, date, radio, checkbox, and more.
+            </p>
+        </details>
+
+        <details>
+            <summary>&lt;label&gt;</summary>
+            <p>
+                Provides a label for input fields and improves accessibility.
+            </p>
+        </details>
+
+        <details>
+            <summary>&lt;button&gt;</summary>
+            <p>
+                Represents a clickable button used to submit forms or perform actions.
+            </p>
+        </details>
+    </fieldset>
+
+    <hr>
+
+    <h2>5. Interactive & Semantic Tags</h2>
+
+    <details>
+        <summary>&lt;details&gt; &amp; &lt;summary&gt;</summary>
+        <p>
+            Creates expandable and collapsible sections.
+            Useful for FAQs and extra information.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;fieldset&gt; &amp; &lt;legend&gt;</summary>
+        <p>
+            Groups related form elements together with a caption.
+        </p>
+    </details>
+
+    <details>
+        <summary>&lt;meta&gt;</summary>
+        <p>
+            Provides metadata such as character encoding, viewport settings,
+            and SEO-related information.
+        </p>
+    </details>
+
+    <hr>
+
+    <h2>6. Why Semantic HTML Matters</h2>
+
+    <ul>
+        <li>Improves readability</li>
+        <li>Enhances accessibility</li>
+        <li>Helps search engines understand content</li>
+        <li>Creates clean and maintainable code</li>
+    </ul>
+
+    <hr>
+
+    <p>
+        ✅ This page uses only HTML — no CSS, no JavaScript —
+        yet it remains structured, readable, and professional.
+    </p>
+
+    <p>
+        Keep learning HTML deeply. Strong fundamentals = strong web developer 💪
+    </p>
+
 </body>
 </html>
