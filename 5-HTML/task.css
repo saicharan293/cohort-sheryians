@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.main{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://images.unsplash.com/photo-1763435487029-5263f7419796?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 10px;
+}
+
+p{
+    color: whitesmoke;
+    font-size: 60px;
+    font-family: "Rubik Glitch", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px;
+}
+
+button{
+    padding: 15px;
+    font-family: "kranky", cursive;
+    font-weight: 800;
+    font-style: normal;
+    background-color: gray;
+    /* border: none; */
+    border-radius: 5px;
+    font-size: 20px;
+    color: aliceblue;
+}
