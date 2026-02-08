@@ -10,26 +10,15 @@ html, body{
     background: black;
 }
 
-.box1{
-    width: 100px;
-    height: 100px;
-    background-color: crimson;
+.outer{
+    width: 400px;
+    height: 200px;
+    background-color: rebeccapurple;
 }
 
-.box2{
-    width: 400px;
-    height: 400px;
-    /* we can add many colors */
-    /* background: linear-gradient(to right, orange, white, green); */
-    /* diagonally */
-    /* background: linear-gradient(to right bottom, orange, white, green); */
-    /* partial amount of color  */
-    /* background: linear-gradient(to right bottom, orange 40%, white 50%, green); */
-
-    /* In radial gradient, first color takes center and last color takes exit  */
-    /* background: radial-gradient(yellow, red, black); */
-    
-    /* In conic gradient, first color breaks and take a turn at the center to reach next color  */
-    /* background: conic-gradient(yellow, red); */
-    background: conic-gradient(violet, indigo, blue, green, yellow, orange, red, violet);
+.inner{
+    /* % is used for measuring with respect to parent width and height  */
+    width: 20%;
+    height: 20%;
+    background-color: aquamarine;
 }
