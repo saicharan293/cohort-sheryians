@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+
+.box1{
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+}
+
+.box2{
+    width: 400px;
+    height: 400px;
+    /* we can add many colors */
+    /* background: linear-gradient(to right, orange, white, green); */
+    /* diagonally */
+    /* background: linear-gradient(to right bottom, orange, white, green); */
+    /* partial amount of color  */
+    /* background: linear-gradient(to right bottom, orange 40%, white 50%, green); */
+
+    /* In radial gradient, first color takes center and last color takes exit  */
+    /* background: radial-gradient(yellow, red, black); */
+    
+    /* In conic gradient, first color breaks and take a turn at the center to reach next color  */
+    /* background: conic-gradient(yellow, red); */
+    background: conic-gradient(violet, indigo, blue, green, yellow, orange, red, violet);
+}
