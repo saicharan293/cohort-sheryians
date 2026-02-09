@@ -1,0 +1,69 @@
+@font-face {
+    font-family: Helvetica;
+    src: url(HelveticaNowDisplay-Regular.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: #111;
+    color: white;
+}
+
+#nav{
+    padding: 30px 70px;
+}
+
+#nav a{
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+#main>h1{
+    font-size: 250px;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+#btmleft{
+    position: absolute;
+    bottom: 12%;
+    left: 3%;
+    /* background-color: red; */
+    width: 300px;
+}
+
+#btmleft h3{
+    font-size: 30px;
+}
+
+#btmleft p{
+    font-size: 18px;
+    margin-top: 5px;
+}
+#btmleft h4{
+    margin-top: 30px;
+}
+
+.btmbar{
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 70px;
+}
