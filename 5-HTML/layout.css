@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.parent{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    /* to align children along x axis  */
+    display: flex;
+
+    /* children on x axis align to y axis  */
+    /* flex-direction: column; */
+
+    /* along y axis  */
+    /* align-items: flex-end; */
+    align-items: center;
+
+    /* along x axis  */
+    /* justify-content: flex-end; */
+
+    /* to distribute along x axis  */
+    /* justify-content: space-between; */
+
+    /* to distribute around x axis  */
+    /* justify-content: space-around; */
+    justify-content: center;
+}
+
+.box1{
+    height: 200px;
+    width: 200px;
+    background-color: crimson;
+}
+
+.box2{
+    height: 200px;
+    width: 200px;
+    background-color: lightseagreen;
+}
+
+.box3{
+    height: 200px;
+    width: 200px;
+    background-color: lightblue;
+}
