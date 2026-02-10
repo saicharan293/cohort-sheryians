@@ -19,7 +19,8 @@ html, body{
     height: 100%;
     width: 100%;
     background-color: #111;
-    color: white;
+    /* color: white; */
+    background-color: white;
 }
 
 #nav{
@@ -28,7 +29,7 @@ html, body{
 
 #nav a{
     font-size: 25px;
-    color: white;
+    color: black;
     text-decoration: none;
     margin-right: 30px;
 }
@@ -36,19 +37,19 @@ html, body{
 #main>h1{
     font-size: 250px;
     font-weight: 400;
-    padding-left: 30px;
+    padding-left: 60px;
 }
 
 #btmleft{
     position: absolute;
-    bottom: 12%;
+    bottom: 20%;
     left: 3%;
     /* background-color: red; */
     width: 300px;
 }
 
 #btmleft h3{
-    font-size: 30px;
+    font-size: 28px;
 }
 
 #btmleft p{
@@ -60,10 +61,45 @@ html, body{
 }
 
 .btmbar{
-    background-color: red;
+    /* background-color: red; */
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 70px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btmbar a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 32px;
+
+}
+
+#main>img{
+    height: 300px;
+    position: absolute;
+}
+
+#main .first{
+    height: 400px;
+    top: 35%;
+    right: 15%;
+    z-index: 2;
+}
+
+#main .second{
+    height: 350px;
+    top: 50%;
+    left: 55%;
+    z-index: 1;
+
+}
+
+#main .third{
+    height: 400px;
+    top: 40%;
+    left: 40%;
 }
