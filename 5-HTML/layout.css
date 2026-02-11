@@ -1,12 +1,7 @@
-@font-face {
-    font-family: apple;
-    src: url(sf-pro-display_regular.woff2);
-}
 *{
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: apple, system-ui;
 }
 
 html,body
@@ -15,67 +10,16 @@ html,body
    width: 100%;
 }
 
-.main{
-    height: 100%;
-    width: 100%;
-    /* background-color: black; */
-}
-
-.nav{
-    height: 60px;
-    width: 100%;
-    background-color: rgb(44, 44, 44);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-h4{
-    color: white;
-    font-weight: 400;
-    font-size: 18px;
-}
-
-#center{
-    height: 85%;
-    width: 100%;
+body{
     background-color: black;
-    text-align: center;
-    padding: 10px 20px;
-    background-image: url(https://www.apple.com/v/home/cl/images/heroes/iphone-family/hero_iphone_family__fuz5j2v5xx6y_mediumtall.jpg);
-    background-position: center;
-    background-size: cover;
-    /* background-size: 50%; */
-    /* background-repeat: no-repeat; */
 }
 
-#center h1{
-    /* color: white; */
-    font-size: 60px;
-    font-weight: 300;
-}
-
-#center h5{
-    /* color: white; */
-    font-size: 30px;
-    font-weight: 300;
-}
-
-#links{
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    justify-content: center;
-    padding: 20px;
-}
-
-#links button{
-    background-color: royalblue;
-    color: white;
-    padding: 13px 25px;
-    border-radius: 50px;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+.box{
+    height: 200px;
+    width: 200px;
+    background-color: crimson;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
