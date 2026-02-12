@@ -10,52 +10,17 @@ html,body
    width: 100%;
 }
 
-#main{
-    height: 100%;
-    width: 100%;
-    background-color: lightpink;
-    padding: 20px;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+body{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: black;
 }
 
-.card{
-    height: 300px;
-    width: 250px;
-    border-radius: 10px;
-    background-color: aliceblue;
-    box-shadow: 5px 10px 25px rgba(0, 115, 255, 0.764);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-}
+.box{
+   height: 200px;
+   width: 200px;
+   background-color: crimson;
 
-.card img{
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.card p{
-    text-align: center;
-    font-weight: 500;
-    font-size: 16px;
-    width: 80%;
-}
-
-.card button{
-    padding: 10px;
-    background-color: aqua;
-    border: 4px solid crimson;
-    border-radius: 15px;
-}
-
-.card button:hover{
-    background-color: chocolate;
-    border: 4px solid aqua;
-    cursor: pointer;
-    color: whitesmoke;
+   transform: translate(-50%);
 }
