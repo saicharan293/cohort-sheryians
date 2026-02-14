@@ -15,6 +15,11 @@ html,body
    width: 100%;
    background-color: lightseagreen;
    padding: 10px;
+   display: flex;
+   /* align-items: center; */
+   /* justify-content: space-between; */
+   gap: 20px;
+   flex-wrap: wrap;
 }
 
 .card{
@@ -22,23 +27,44 @@ html,body
    width: 350px;
    background-color: crimson;
    position: relative;
+   border-radius: 10px;
+   overflow: hidden;
 }
 
 .card img{
    height: 100%;
    width: 100%;
    object-fit: cover;
+   
 }
 
 .bottom{
-   height: 40%;
+   height: 100%;
    width: 100%;
-   background-color: aqua;
+   background:linear-gradient(transparent, black 95%);
    position: absolute;
-   bottom: -40%;
+   bottom: -100%;
    transition: all ease 0.7s;
+   padding: 5px;
+   color: white;
 }
 
-.bottom:hover{
-   background-color: azure;
+.bottom .top{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.bottom h2{
+   color: aqua;
+   padding: 5px;
+}
+
+.bottom h3{
+   font-size: 20px;
+   color: aliceblue;
+}
+
+.card:hover .bottom{
+   bottom: 0%;
 }
