@@ -10,61 +10,25 @@ html,body
    width: 100%;
 }
 
-.main{
+.parent{
    height: 100%;
    width: 100%;
-   background-color: lightseagreen;
-   padding: 10px;
-   display: flex;
-   /* align-items: center; */
-   /* justify-content: space-between; */
-   gap: 20px;
-   flex-wrap: wrap;
+   background-color: black;
 }
 
-.card{
-   height: 300px;
-   width: 350px;
+.box{
+   height: 200px;
+   width: 200px;
    background-color: crimson;
-   position: relative;
-   border-radius: 10px;
-   overflow: hidden;
 }
 
-.card img{
-   height: 100%;
-   width: 100%;
-   object-fit: cover;
-   
-}
+/* :nth-child means appearance of that element  */
 
-.bottom{
-   height: 100%;
-   width: 100%;
-   background:linear-gradient(transparent, black 95%);
-   position: absolute;
-   bottom: -100%;
-   transition: all ease 0.7s;
-   padding: 5px;
-   color: white;
-}
+/* :nth-last-child means first element from the last  */
 
-.bottom .top{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-}
+/* :nth-child(2n) means every eventh element  */
+/* :nth-child(2n-1) means every odd place element  */
 
-.bottom h2{
-   color: aqua;
-   padding: 5px;
-}
-
-.bottom h3{
-   font-size: 20px;
-   color: aliceblue;
-}
-
-.card:hover .bottom{
-   bottom: 0%;
+.box:nth-child(1){
+   background-color: seagreen;
 }
