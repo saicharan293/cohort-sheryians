@@ -16,31 +16,36 @@ main{
     width: 100%;
     background-color: black;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 60px 1fr 80px;
-    grid-template-areas: "header header"
-                        "aside section"
-                        "footer footer"
-        ;
-    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 120px 1fr 1fr;
+    grid-template-areas: "header header header"
+                        "content content content"
+                        "div1 div2 div3";
+    grid-gap: 10px;
+    padding: 20px;
 }
 
 header{
-    background-color: darkcyan;
     grid-area: header;
-}
-
-aside{
-    background-color: darkgoldenrod;
-    grid-area: aside;
+    background-color: crimson;
 }
 
 section{
-    background-color: midnightblue;
-    grid-area: section;
+    grid-area: content;
+    background-color: lightseagreen;
 }
 
-footer{
-    background-color: maroon;
-    grid-area: footer;
+div{
+    grid-area: div1;
+    background-color: darkmagenta;
+}
+
+.div2{
+    grid-area: div2;
+    background-color: darkcyan;
+}
+
+.div3{
+    grid-area: div3;
+    background-color: darkgoldenrod;
 }
