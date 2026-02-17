@@ -15,11 +15,20 @@ main{
     height: 100%;
     width: 100%;
     background-color: black;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.child{
-    background-color: crimson;
-    border: 3px solid white;
+header{
+    background-color: gold;
+}
+
+aside{
+    background-color: aqua;
+}
+
+section{
+    background-color: magenta;
+}
+
+footer{
+    background-color: maroon;
 }
