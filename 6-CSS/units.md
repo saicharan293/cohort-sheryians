@@ -81,3 +81,5 @@ Based on another value (parent, root, or viewport). Good for responsive design.
 * Avoid excessive use of absolute units like `cm`, `mm`, `in`.
 * Prefer relative units for scalability.
 
+# refer this for responsiveness brief
+https://medium.com/@prajapatiankur8349/how-to-create-responsive-websites-like-a-pro-2193ff6ab574
