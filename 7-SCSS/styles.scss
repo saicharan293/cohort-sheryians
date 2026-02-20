@@ -14,12 +14,19 @@ body{
     color: white;
 }
 
-h1{
-    font-size: 1rem;
-    /* 
-    1rem = html tag font size
-    */
-    /* 
-    1em = parent element font size
-    */
+.red{
+    height: 400px;
+    width: 400px;
+    background-color: crimson;
+
+    .blue{
+        height: 100px;
+        width: 100%;
+
+        /* 
+            % depends on dimensions of parent element
+            %(of parent width)
+        */
+        background-color: aquamarine;
+    }
 }

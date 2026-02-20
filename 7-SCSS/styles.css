@@ -14,12 +14,17 @@ body {
   color: white;
 }
 
-h1 {
-  font-size: 1rem;
+.red {
+  height: 400px;
+  width: 400px;
+  background-color: crimson;
+}
+.red .blue {
+  height: 100px;
+  width: 100%;
   /* 
-  1rem = html tag font size
+      % depends on dimensions of parent element
+      %(of parent width)
   */
-  /* 
-  1em = parent element font size
-  */
+  background-color: aquamarine;
 }/*# sourceMappingURL=styles.css.map */
