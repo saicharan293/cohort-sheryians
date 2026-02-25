@@ -135,6 +135,7 @@ main section.view3 .bottom .text p {
   opacity: 0.6;
   font-size: 1.5rem;
   line-height: 2.2rem;
+  letter-spacing: 0.1rem;
 }
 main section.view3 .bottom .text button {
   width: -moz-fit-content;
@@ -148,16 +149,55 @@ main section.view3 .bottom > p {
   text-transform: uppercase;
 }
 main section.view4 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+main section.view4 .top {
+  width: 100%;
+}
+main section.view4 .top img {
+  width: 100%;
+  border-radius: 0.7rem;
+}
+main section.view4 .bottom {
+  background-color: #292929;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 1rem;
+  border-radius: 0.7rem;
+}
+main section.view4 .bottom .text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+main section.view4 .bottom .text h1 {
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+main section.view4 .bottom .text p {
+  font-weight: 100;
+  opacity: 0.6;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.1rem;
+}
+main section.view5 {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 1rem;
   width: 100%;
 }
-main section.view4 .card {
+main section.view5 .card {
   width: 100%;
   border-radius: 0.7rem;
-  background-image: url(https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(https://assets-global.website-files.com/63cffb7c16ab3347fc9734c8/63d2ccbd7d003dfb6a1bdecb_team-01-p-800.webp);
   background-size: cover;
   background-position: center;
   aspect-ratio: 1/1;
@@ -167,67 +207,84 @@ main section.view4 .card {
   justify-content: space-between;
   padding: 1rem;
 }
-main section.view4 .card .icon, main section.view4 .card .bottom {
+main section.view5 .card .icon, main section.view5 .card .bottom {
   background-color: rgba(136, 136, 136, 0.214);
   backdrop-filter: blur(5px);
   border: 1px solid white;
   border-radius: 0.5rem;
   padding: 0.7rem;
 }
-main section.view4 .card .top {
+main section.view5 .card .top {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
 }
-main section.view4 .card .icon {
+main section.view5 .card .icon {
   width: -moz-fit-content;
   width: fit-content;
   border-radius: 50%;
 }
-main section.view4 .card .bottom {
+main section.view5 .card .bottom {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
 }
-main section.view4 .card .bottom p {
+main section.view5 .card .bottom p {
   text-transform: uppercase;
 }
-main section.view5 {
+main section.view5 .card2 {
+  background-image: url(https://assets-global.website-files.com/63cffb7c16ab3347fc9734c8/63d2ccbd2e12fa747e999689_team-02-p-800.webp);
+}
+main section.view5 .card3 {
+  background-image: url(https://assets-global.website-files.com/63cffb7c16ab3347fc9734c8/63d2ccbdc1f945f817bf4fd7_team-03-p-800.webp);
+}
+main section.view6 {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 1rem;
 }
-main section.view5 .top {
+main section.view6 .top {
   width: 100%;
 }
-main section.view5 .top img {
+main section.view6 .top img {
   width: 100%;
   border-radius: 0.7rem;
 }
-main section.view5 .bottom {
+main section.view6 .bottom {
   background-color: #292929;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-  padding: 1rem;
+  gap: 5.5rem;
+  padding: 1.2rem;
+  border-radius: 1rem;
 }
-main section.view5 .bottom .text {
+main section.view6 .bottom .question h1 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: gray;
+  text-transform: uppercase;
+}
+main section.view6 .bottom .question p {
+  font-size: 2.1rem;
+  text-transform: uppercase;
+}
+main section.view6 .bottom .answer {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 1rem;
+  flex-direction: row;
 }
-main section.view5 .bottom .text h1 {
-  font-weight: 200;
+main section.view6 .bottom .answer .icon {
+  border: 1px solid white;
+  border-radius: 60%;
+  font-size: 1.4rem;
+}
+main section.view6 .bottom .answer p {
   text-transform: uppercase;
-  font-size: 2.5rem;
-}
-main section.view5 .bottom .text p {
-  font-weight: 100;
-  opacity: 0.6;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
 }
 
 section {
@@ -263,7 +320,7 @@ section {
   }
   main section.view3 {
     flex-direction: row-reverse;
-    padding: 1rem 4rem;
+    padding: 1rem 3rem;
   }
   main section.view3 .top, main section.view3 .bottom {
     width: 50%;
@@ -281,11 +338,52 @@ section {
   }
   main section.view4 {
     flex-direction: row;
+    padding: 1rem 4rem;
+  }
+  main section.view4 .top, main section.view4 .bottom {
+    width: 50%;
+  }
+  main section.view4 .bottom {
+    justify-content: space-between;
+    padding: 3rem;
+  }
+  main section.view4 .bottom .text {
+    gap: 1.5rem;
+  }
+  main section.view4 .bottom .text h1 {
+    font-size: 2.2rem;
+  }
+  main section.view4 .bottom .text p {
+    width: 75%;
+    font-size: 1rem;
+  }
+  main section.view5 {
+    flex-direction: row;
     justify-content: space-between;
     padding: 1rem 4rem;
   }
-  main section.view4 .card {
+  main section.view5 .card {
     width: 30%;
     aspect-ratio: 1/1;
+  }
+  main section.view6 {
+    flex-direction: row;
+    padding: 1rem 3rem;
+  }
+  main section.view6 .top, main section.view6 .bottom {
+    width: 50%;
+  }
+  main section.view6 .bottom {
+    justify-content: space-between;
+    padding: 4rem;
+  }
+  main section.view6 .bottom .question h1 {
+    font-size: 0.9rem;
+  }
+  main section.view6 .bottom .answer .icon {
+    font-size: 1rem;
+  }
+  main section.view6 .bottom .answer p {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=styles.css.map */

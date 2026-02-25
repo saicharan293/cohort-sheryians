@@ -137,6 +137,7 @@ main{
                     opacity: .6;
                     font-size: 1.5rem;
                     line-height: 2.2rem;
+                    letter-spacing: .1rem;
                 }
 
                 button{
@@ -154,7 +155,49 @@ main{
         }
     }
 
+
     section.view4{
+        width: 100%;
+        @include flex-column(2rem);
+        padding: 1rem;
+
+        .top{
+            width: 100%;
+            img{
+                width: 100%;
+                border-radius: .7rem;
+            }
+        }
+
+        .bottom{
+            background-color: #292929;
+            @include flex-column(4rem);
+            padding: 1rem;
+            border-radius: .7rem;
+
+            .text{
+                @include flex-column(.7rem);
+
+                h1{
+                    font-weight: 200;
+                    text-transform: uppercase;
+                    font-size: 2.5rem;
+                }
+
+                p{
+                    font-weight: 100;
+                    opacity: .6;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                    letter-spacing: .1rem;
+                }
+
+                
+            }
+        }
+    }
+
+    section.view5{
         @include flex-column(2rem);
         padding: 1rem;
         width: 100%;
@@ -162,7 +205,7 @@ main{
         .card{
             width: 100%;
             border-radius: .7rem;
-            background-image: url(https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            background-image: url(https://assets-global.website-files.com/63cffb7c16ab3347fc9734c8/63d2ccbd7d003dfb6a1bdecb_team-01-p-800.webp);
             background-size: cover;
             background-position: center;
             aspect-ratio: 1/1;
@@ -197,9 +240,17 @@ main{
                 }
             }
         }
+
+        .card2{
+            background-image: url(https://assets-global.website-files.com/63cffb7c16ab3347fc9734c8/63d2ccbd2e12fa747e999689_team-02-p-800.webp);
+        }
+
+        .card3{
+            background-image: url(https://assets-global.website-files.com/63cffb7c16ab3347fc9734c8/63d2ccbdc1f945f817bf4fd7_team-03-p-800.webp);
+        }
     }
 
-    section.view5{
+    section.view6{
         width: 100%;
         @include flex-column(2rem);
         padding: 1rem;
@@ -211,32 +262,44 @@ main{
                 border-radius: .7rem;
             }
         }
-
         .bottom{
             background-color: #292929;
-            @include flex-column(4rem);
-            padding: 1rem;
-
-            .text{
-                @include flex-column(.7rem);
-
+            @include flex-column(5.5rem);
+            padding: 1.2rem;
+            border-radius: 1rem;
+            .question{           
                 h1{
-                    font-weight: 200;
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    color: gray;
                     text-transform: uppercase;
-                    font-size: 2.5rem;
+                }
+                
+                p{
+                    font-size: 2.1rem;
+                    text-transform: uppercase;
+                }
+            }
+            .answer{
+                @include flex-column(1rem);
+                flex-direction: row;
+                
+                .icon{
+                    border: 1px solid white;
+                    border-radius: 60%;
+                    font-size: 1.4rem;
                 }
 
                 p{
-                    font-weight: 100;
-                    opacity: .6;
-                    font-size: 1.5rem;
-                    line-height: 2rem;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    letter-spacing: .1rem;
                 }
-
-                
             }
         }
     }
+
+    
 }
 
 section{
@@ -280,7 +343,7 @@ section{
 
         section.view3{
             flex-direction:row-reverse;
-            padding: 1rem 4rem;
+            padding: 1rem 3rem;
 
             .top, .bottom{
                 width: 50%;
@@ -304,6 +367,31 @@ section{
 
         section.view4{
             flex-direction: row;
+            padding: 1rem 4rem;
+
+            .top, .bottom{
+                width: 50%;
+            }
+
+            .bottom{
+                justify-content: space-between;
+                padding: 3rem;
+                .text{
+                    gap: 1.5rem;
+                    h1{
+                        font-size: 2.2rem;
+                    }
+
+                    p{
+                        width: 75%;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        section.view5{
+            flex-direction: row;
             justify-content: space-between;
             padding: 1rem 4rem;
 
@@ -311,6 +399,37 @@ section{
                 width: 30%;
                 aspect-ratio: 1/1;
             }
+        }
+
+        section.view6{
+            flex-direction: row;
+            padding: 1rem 3rem;
+            .top, .bottom{
+                width: 50%;
+            }
+
+            .bottom{
+                justify-content: space-between;
+                padding: 4rem;
+                .question{
+                    h1{
+                        font-size: .9rem;
+                    }
+                }
+
+                .answer{
+                    .icon{
+                        font-size: 1rem;
+                    }
+
+
+                    p{
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+
         }
     }
 }
