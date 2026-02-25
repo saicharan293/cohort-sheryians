@@ -198,6 +198,45 @@ main{
             }
         }
     }
+
+    section.view5{
+        width: 100%;
+        @include flex-column(2rem);
+        padding: 1rem;
+
+        .top{
+            width: 100%;
+            img{
+                width: 100%;
+                border-radius: .7rem;
+            }
+        }
+
+        .bottom{
+            background-color: #292929;
+            @include flex-column(4rem);
+            padding: 1rem;
+
+            .text{
+                @include flex-column(.7rem);
+
+                h1{
+                    font-weight: 200;
+                    text-transform: uppercase;
+                    font-size: 2.5rem;
+                }
+
+                p{
+                    font-weight: 100;
+                    opacity: .6;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                }
+
+                
+            }
+        }
+    }
 }
 
 section{
