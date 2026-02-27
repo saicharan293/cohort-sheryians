@@ -20,3 +20,72 @@
 // - Modules
 // Importance: 
 // animation, interactive, engagement creation
+
+// var, let , const
+
+// const => for storing values that don't change
+// var, let => for storing varied values
+
+// just declare
+// var a;
+
+//declare and initialize
+// var a = 12;
+// var a exists in the functioned scoped
+
+// function abcd(){
+//     if(true){
+//         var a = 12;
+//     }
+//     console.log(a); // a = 12, since function scoped,
+//     //  var is still accessible out of if block (but not outside function)
+// }
+// console.log(a) //not accessible
+// abcd()
+
+// redeclaration is possible without having any error
+// var a= 2;
+// var a = 'sai';
+// console.log(a);
+
+
+//let a = 10;
+// block scoped 
+// redeclaration gives error
+
+// -----------------------------------------------------
+
+
+// Scope (global , block, functional)
+
+//global scoped (not inside any { braces } )
+
+//Function scoped
+// function greet(){
+//     var a =12;
+// }
+
+// a is accessible only to the function
+
+//Block scoped
+// var doesn't respect block, since functional scoped
+// let respect block, so block scoped ( withing { braces => function, if block etc })
+
+
+// -------------------------------------------------------
+// Reassignment, Redeclaration
+// Reassignment is possible with let, var
+// var a = 12;
+// a = 32;
+// var a  = 232;
+
+// Redeclaration is possible with var
+
+// let a = 24;
+
+// Redeclaration is not possible with let
+
+// let b = 12;
+// b = 23;
+
+// ------------------------------------------------------------
