@@ -89,3 +89,16 @@
 // b = 23;
 
 // ------------------------------------------------------------
+
+
+// Temporal Dead Zone
+// area that js know that variable exists but cannot access it.
+
+// console.log(a);
+// For Let, Reference error, since cannot access before initialization
+// it isn't saying that it is not defined ( js knows a is there )
+// let a = 12;
+
+// For Var, it doesn't give Reference error, it gives undefined
+// because Hoisting takes place
+// var a = 10;
