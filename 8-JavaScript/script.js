@@ -102,3 +102,47 @@
 // For Var, it doesn't give Reference error, it gives undefined
 // because Hoisting takes place
 // var a = 10;
+
+
+//-----------------------
+
+// Data Types in JavaScript 
+
+// Primitives,
+//-------------
+// we can copy the primitives (copy by value)
+// string, number, boolean, null , undefined, Symbol, bigint
+
+let a = 12; // its own 12
+let b = a;  // its own 12
+
+a = a + 1; 
+// only a value changed, 
+// b value remains same
+
+// strings = '', "", ``
+// numbers = 12, 12.3
+// boolean = true/false
+// null = for assigning empty values (assigned by user)
+// undefined = for empty declarations ( assigned by js engine)
+// Symbol = unique, immutable value
+
+// Big int = number followed by n at the end
+
+
+
+// References : (with brackets)
+//------------
+// we copy the references (i.e., memory address/location), but not actual value (copy by reference)
+// arrays, objects, funct ions
+// [], {}, ()
+
+let arr = [1, 2, 3];
+
+let arr2 = arr;
+// here arr2 doesn't hold real values that are in arr
+arr2.pop();
+// since pop removes last value of arr2 array,
+// arr also loose its element
+
+// ------------------------------
