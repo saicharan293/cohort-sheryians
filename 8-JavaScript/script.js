@@ -113,10 +113,10 @@
 // we can copy the primitives (copy by value)
 // string, number, boolean, null , undefined, Symbol, bigint
 
-let a = 12; // its own 12
-let b = a;  // its own 12
+// let a = 12; // its own 12
+// let b = a;  // its own 12
 
-a = a + 1; 
+// a = a + 1; 
 // only a value changed, 
 // b value remains same
 
@@ -137,12 +137,20 @@ a = a + 1;
 // arrays, objects, funct ions
 // [], {}, ()
 
-let arr = [1, 2, 3];
+// let arr = [1, 2, 3];
 
-let arr2 = arr;
+// let arr2 = arr;
 // here arr2 doesn't hold real values that are in arr
-arr2.pop();
+// arr2.pop();
 // since pop removes last value of arr2 array,
 // arr also loose its element
 
 // ------------------------------
+
+// Dynamic Typing
+
+// you can assign any data type to the var/let on the go
+
+let a = 12;
+a = "is it ok?";
+a = true;
