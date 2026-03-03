@@ -154,3 +154,94 @@
 let a = 12;
 a = "is it ok?";
 a = true;
+
+//-------------------------------
+
+// Type Coercion => type automatically converted
+
+console.log("5"+1); // + represent add or Concatenate (strings)
+
+// while in "+" operator, if any of the operands is a string, 
+// then js assumes that this is concatenation but not addition
+// "51"
+
+// Here comes the confusion part
+
+console.log("5" - 1); // - represents only subtraction , result?
+
+// Here -, if any operand is a number,
+// js converts (type coercion) other possible data types to number (instead of keeping string as is)
+
+// Boolean Coercion
+
+if ("hello") {  //non-empty strings are considered true
+  console.log("Yes") 
+}
+
+// Falsy values (these become false):
+// false
+// 0
+// "" (empty string)
+// null
+// undefined
+// NaN
+
+// The Weird One: == vs ===
+
+// === , no conversions, coercions, means types must match
+// ==, allows type coercions(conversion)
+
+
+// here comes confusion in arrays
+
+console.log([] + []); 
+// output: "", + sees objects (arrays), converts to primitives. [].toString() => ""
+
+console.log([] + {});
+// "[object Object]"
+// [] => [].toString() => ""
+// {} => {}.toString => "[object Object]"
+
+console.log({}+[]);
+//0, because most cases {} is considered empty block but not object , so 0
+
+
+console.log([]==false);
+// true, because [].toString() = "" = 0, false = 0
+
+// Interview level
+
+console.log("5" - - "2");
+// "2" -> 2
+//-"2" -> -2
+//"5" -> 5
+// 5 - -2 => 7
+
+// here, if []/{} (objects), Js tries to convert to primitive types
+
+// valueOf()
+// toString()
+
+// [] => [].toString(); => ""
+// {}.toString() → "[object Object]"
+
+// for other operators (-, *,/) => Number
+// Number("")      → 0
+// Number("5")     → 5
+// Number(true)    → 1
+// Number(false)   → 0
+// Number(null)    → 0
+// Number(undefined) → NaN
+
+
+// JavaScript coercion works like this:
+
+// If objects → convert to primitive
+
+// If math → convert to number
+
+// If + and string involved → convert to string
+
+// If == → complicated conversion rules
+
+// If === → no conversion
