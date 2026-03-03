@@ -245,3 +245,30 @@ console.log("5" - - "2");
 // If == → complicated conversion rules
 
 // If === → no conversion
+
+
+//-----------------------------
+// Quirks
+//  meaning, looks wrong, feels wrong, but technically correct
+
+// NaN === NaN  // false
+// Nan means Not a Number, so never equals anything
+
+// 0.1 + 0.2 === 0.3  // false, because 0.1+0.2 = 0.300000
+
+
+// return
+// {
+//   name: "John"
+// }
+
+// here (ASI), Automatic Semicolon insertion takes place near return
+
+// return;, so value is undefined
+
+
+// 1 < 2 < 3   // true
+// 1 < 2 => true(1) < 3 => true
+
+// 3 > 2 > 1   // false
+// 3 > 2 => true(1) > 1 => false
