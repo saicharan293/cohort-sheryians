@@ -1,0 +1,182 @@
+
+$bg: #0f172a;
+$card: #1e293b;
+$primary: #38bdf8;
+$text: #f1f5f9;
+$muted: #94a3b8;
+$radius: 14px;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: $bg;
+    color: $text;
+    line-height: 1.6;
+}
+
+.hero{
+    text-align: center;
+    padding: 2rem 1rem;
+    h1{
+        color: $primary;
+        font-size: 2.2rem;
+    }
+    p{
+        color: $muted;
+        margin-top: .5rem;
+        font-size: 1.2rem;
+    }
+    input{
+        margin-top: 1.5rem;
+        padding: .6rem 1rem;
+        width: 100%;
+        max-width: 400px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+    }
+}
+
+.container{
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 4rem;
+}
+
+.section-title{
+    margin: 1rem 0 1rem;
+    color: $primary;
+    text-align: center;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.card{
+    background: $card;
+    border-radius: $radius;
+    overflow: hidden;
+    transition: .3s ease;
+
+    .card-header{
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 1rem;
+        color: $text;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        span{
+            font-size: 1.2rem;
+        }
+    }
+    .badge {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        border-radius: 20px;
+    }
+    .beginner { background: #16a34a; }
+    .intermediate { background: #facc15; color: black; }
+    .advanced { background: #dc2626; }
+
+    .card-body{
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1rem;
+        transition: 0.4s ease;
+
+        pre{
+            background: #0b1120;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            overflow-x: auto;
+
+            code{
+                font-size: 1.2rem;
+            }
+        }
+
+        .output{
+            margin-top: 1rem;
+            color: $primary;
+            font-size: 1.5rem;
+        }
+        
+        p{
+            margin-top: 0.5rem;
+            color: $muted;
+            font-size: 1.3rem;
+        }
+
+        .copy-btn{
+            margin: 1rem 0;
+            padding: .4rem .8rem;
+            border: none;
+            border-radius: 6px;
+            background: $primary;
+            color: black;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    }
+
+    &.active .card-body {
+        max-height: 400px;
+        padding: 1rem;
+    }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: $muted;
+}
+
+// laptop screen - responsive
+@media (min-width: 600px) {
+    .hero{
+        padding: 2rem 1rem 1rem;
+        h1{
+            font-size: 2.5rem;
+        }
+        p{
+            font-size: 1.3rem;
+        }
+    }
+    main{
+        .section-title{
+            text-align: left;
+            padding-left: .5rem;
+        }
+    }
+    .card{
+        .card-header{
+            span{
+                font-size: 1.1rem;
+            }
+        }
+        .card-body{
+            pre{
+                margin-top: 0;
+            }
+        }
+    }
+}
