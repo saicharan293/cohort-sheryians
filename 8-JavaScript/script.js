@@ -147,7 +147,11 @@
 
 // ------------------------------
 
-// Dynamic Typing
+// Dynamic Typing => JS doesn't have fixed data type, 
+// the variable data type depends upon the data it stores. 
+// Type checking happens at run time
+
+// int a= 12
 
 // you can assign any data type to the var/let on the go
 
@@ -155,6 +159,14 @@ let a = 12;
 a = "is it ok?";
 a = true;
 
+
+// ----------------------
+// Does this mean Loosely Typed? 
+// Js automatically converts values between types very easily
+
+console.log(5 + "5")   // "55"
+// This automatic conversion is called 
+// → Type Coercion
 //-------------------------------
 
 // Type Coercion => type automatically converted
@@ -194,24 +206,24 @@ if ("hello") {  //non-empty strings are considered true
 
 // here comes confusion in arrays
 
-console.log([] + []); 
+// console.log([] + []); 
 // output: "", + sees objects (arrays), converts to primitives. [].toString() => ""
 
-console.log([] + {});
+// console.log([] + {});
 // "[object Object]"
 // [] => [].toString() => ""
 // {} => {}.toString => "[object Object]"
 
-console.log({}+[]);
+// console.log({}+[]);
 //0, because most cases {} is considered empty block but not object , so 0
 
 
-console.log([]==false);
+// console.log([]==false);
 // true, because [].toString() = "" = 0, false = 0
 
 // Interview level
 
-console.log("5" - - "2");
+// console.log("5" - - "2");
 // "2" -> 2
 //-"2" -> -2
 //"5" -> 5
@@ -272,3 +284,13 @@ console.log("5" - - "2");
 
 // 3 > 2 > 1   // false
 // 3 > 2 => true(1) > 1 => false
+
+//----------------- operators --------
+
+
+//---------------- Type check operators -----------
+
+
+// typeof => to check the data type of any variable
+
+// instanceOf => to check whether a variable is an array
