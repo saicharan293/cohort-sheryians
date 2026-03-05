@@ -42,8 +42,33 @@ var hello = function(){
 
 // ---------------------------
 
-// what gets hoisted ? and 
+// what gets hoisted ? normal functions (function statements) 
 
-// var, let, functions made with var (function expressions)
+greet();
 
-// what not gets hoisted fully => normal functions
+function greet(){
+    console.log("Java script is fascinating");
+    
+}
+
+// Entire function body is hoisted, so you can call the function anywhere in its scope.
+
+// what not gets hoisted fully => function expression
+// function is assigned to a variable (function), in tern leads to hoisting (hello is not function error)
+
+hello();
+var hello = function(){
+    console.log("Hi");
+}
+
+
+
+// var, let
+console.log(num); // undefined
+var num = 5;
+
+
+console.log(y); // ReferenceError // TDZ
+let y = 10;
+
+// ---------------------------------------
