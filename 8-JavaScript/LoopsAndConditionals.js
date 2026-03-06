@@ -107,3 +107,87 @@
 // }
 
 // output: Two, Three (bug if break is missing)
+
+// ---------------------------------------
+
+// Loops
+// for - start point, end point, condition to stop
+
+// for(let i = 1; i < 101; i++){
+//     // body
+//     console.log(i);
+// }
+
+// while - start point, where to stop
+
+// start;
+// let i = 1
+// while(i<11){
+//     //body
+//     console.log(i)
+// }
+
+// do while - it will run atleast once
+
+// start
+
+// let i = 1;
+
+// do{
+//     console.log(i);
+//     i++;
+// }
+// while(i<5);
+// end condition
+
+// break - exit the loop
+
+// for(let i = 1; i < 5; i++){
+//     if(i == 3) break;
+//     console.log(i);
+// }
+
+// continue - skip the current iteration (further code will not be executed)
+// for ( let i = 1; i < 6; i++){
+//     if(i == 2) continue;
+//     console.log(i);
+// }
+
+// ---------------------------------------------------
+
+// practice questions
+// --------------------Q1: print 1 to 10--------------
+
+// for ( let i = 1; i < 11; i ++){
+//     console.log(i);
+// }
+
+// --------------------Q1: print 10 to 1 using while--------------
+// using while
+
+// let i = 10;
+// while(i>0){
+//     console.log(i);
+//     i--;
+// }
+
+// using for
+
+// for(let i=10; i > 0; i--){
+//     console.log(i);
+// }
+
+// --------------------Q1: print even numbers from 1 to 20 using for--------------
+
+// for(let i = 1; i < 21; i++){
+//     if(i%2==0) console.log(i);
+// }
+
+// --------------------Q1: print odd numbers between 1 to 15 using while--------------
+
+let i = 15;
+
+while(i>0){
+    if(i%2!==0) console.log(i);
+    i++;
+}
