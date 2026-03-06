@@ -162,7 +162,7 @@
 //     console.log(i);
 // }
 
-// --------------------Q1: print 10 to 1 using while--------------
+// --------------------Q2: print 10 to 1 using while--------------
 // using while
 
 // let i = 10;
@@ -177,17 +177,47 @@
 //     console.log(i);
 // }
 
-// --------------------Q1: print even numbers from 1 to 20 using for--------------
+// --------------------Q3: print even numbers from 1 to 20 using for--------------
 
 // for(let i = 1; i < 21; i++){
 //     if(i%2==0) console.log(i);
 // }
 
-// --------------------Q1: print odd numbers between 1 to 15 using while--------------
+// --------------------Q4: print odd numbers between 1 to 15 using while--------------
 
-let i = 15;
+// let i = 15;
 
-while(i>0){
-    if(i%2!==0) console.log(i);
-    i++;
-}
+// while(i>0){
+//     if(i%2!==0) console.log(i);
+//     i++;
+// }
+
+// --------------------Q5: print multiplication table of 5------------------
+// let n = 5;
+// for (let i = 1; i < 11; i++ ){
+//     console.log(`${n} * ${i} = ${n * i}`);
+// }
+
+// --------------------Q6: Find sum of 1 to 100----------------------------------
+
+// let sum = 0;
+// for (let i = 1; i < 101; i++){
+//     sum += i;
+// }
+
+// console.log(sum)
+
+// --------------------Q7: Print all the numbers between 1 to 50 that are divisible by 3------------------
+
+// for (let i = 1; i < 51; i++){
+//     if(i%3 == 0) console.log(i);
+// }
+
+// --------------------Q8: Count how many numbers between 1 and 100 are divisible by 5 and 3------------------
+
+// let count = 0;
+// for (let i = 1; i < 101; i++){
+//     if(i%3==0 && i%5==0) count++;
+// }
+
+// console.log(count);
