@@ -221,3 +221,9 @@
 // }
 
 // console.log(count);
+
+// ------------------------------------break and continue -----------------------
+// Stop at First Multiple of 7 
+// Write a loop from 1 to 100 that 
+// Prints each number 
+// Stops completely when it finds the first number divisible by 7
