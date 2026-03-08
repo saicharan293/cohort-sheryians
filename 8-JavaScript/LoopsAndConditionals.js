@@ -260,20 +260,108 @@
 
 // -------------------------------------------------------
 
-let age = prompt("age cheppu");
-if (age === null) {
-    console.error("you cancelled it");
-}
-else {
-    age = age.trim();
-    if (!age) console.log("neat ga cheppu...");
-    else if(isNaN(age)){
-        console.error("arey anna, number enter chey");
-    }
-    else{
-        age = Number(age.trim());
-        console.log("idi oka number")
-    } 
-}
+// let age = prompt("age cheppu");
+// if (age === null) {
+//     console.error("you cancelled it");
+// }
+// else {
+//     age = age.trim();
+//     if (!age) console.log("neat ga cheppu...");
+//     else if(isNaN(age)){
+//         console.error("arey anna, number enter chey");
+//     }
+//     else{
+//         age = Number(age.trim());
+//         console.log("idi oka number")
+//     } 
+// }
 
-//------------------------------------------------
+//-------------------------ASSIGNMENT-----------------------
+// Level 1 – Pure Beginner Practice
+
+// 7. Ask user’s age and check if eligible to vote
+// If age >= 18 → “Eligible”, else → “Not eligible”
+
+// let age = prompt("Enter your age")
+// if(age === null) alert("you cancelled it");
+
+// else{
+//     age = age.trim()
+
+//     if(age === "" | isNaN(age)) alert("You need to enter a number");
+//     else{
+//         age = Number(age.trim())
+//         if(age >= 18) alert("Eligible");
+//         else alert("Not eligible");
+//     }
+// }
+
+// -------------------------------
+// 8. Print multiplication table of 5
+// Use loop to print 5 × 1 to 5 × 10.
+
+// for(let i = 1; i < 11; i++){
+//     console.log(`5 * ${i} = ${5*i}`);
+// }
+
+//---------------------------------------------------------
+// 9. Count how many numbers between 1 and 15 are greater than 8
+// Loop and count conditionally.
+
+// let counter = 0;
+// for (let i = 1; i < 16; i++){
+//     if(i>8) counter++;
+// }
+
+// console.log(counter);
+//---------------------------------------------------------
+
+// 10. Ask user for password and print access status
+// Hardcoded correct password. Compare with user input.
+
+// let CorrectPassword = "user123";
+
+// let userPass = prompt("Enter your password");
+
+// if(userPass === null) alert("You cancelled it");
+
+// else{
+//     userPass = userPass.trim();
+//     if(userPass === "") alert("You need to enter your password");
+//     else if(userPass === CorrectPassword) alert("You are Authorized");
+//     else alert("Wrong Password")
+// }
+
+//---------------------------------------------------------
+// Level 2 – Slightly Tougher but Logical
+
+// 11. Allow only 3 attempts to enter correct password
+// If user gets it right early, stop. If not → “Account locked”
+
+// let correctPass = "user123";
+// let counter = 3;
+
+// while(counter>0){
+//     let userPass = prompt("Enter your password");
+//     if(userPass === null){
+//         alert("You cancelled it");
+//         break;
+//     } 
+
+//     userPass = userPass.trim();
+
+//     if(!userPass) {
+//         alert("You need to enter password");
+//         continue;
+//     }
+//     if(userPass === correctPass){
+//         alert("You are authorized")
+//         break;
+//     } 
+//     counter--;
+//     alert(`you entered wrong password, you have ${counter} choices left`);
+// }
+
+// if(counter==0) alert("Account locked")
+
+// ---------------------------------------------------------------
