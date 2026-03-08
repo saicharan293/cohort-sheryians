@@ -259,3 +259,21 @@
 // }
 
 // -------------------------------------------------------
+
+let age = prompt("age cheppu");
+if (age === null) {
+    console.error("you cancelled it");
+}
+else {
+    age = age.trim();
+    if (!age) console.log("neat ga cheppu...");
+    else if(isNaN(age)){
+        console.error("arey anna, number enter chey");
+    }
+    else{
+        age = Number(age.trim());
+        console.log("idi oka number")
+    } 
+}
+
+//------------------------------------------------
