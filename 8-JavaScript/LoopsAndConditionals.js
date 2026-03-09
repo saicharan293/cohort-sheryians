@@ -365,3 +365,168 @@
 // if(counter==0) alert("Account locked")
 
 // ---------------------------------------------------------------
+
+// 12. Ask user for words until they type “stop”. Count how many times they typed “yes”
+// Loop until "stop" is typed. Count "yes".
+
+// let counter = 0;
+
+// while(true){
+//     let userInput = prompt("Enter any word");
+//     if(userInput === null){
+//         alert("You cancelled it");
+//         break;
+//     }
+//     userInput = userInput.toLocaleLowerCase().trim();
+    
+//     if(userInput === "stop") break;
+//     if(userInput === "yes") counter++;
+// }
+
+// alert(`Total yes count ${counter}`);
+
+// --------------------------------------------------------------------
+
+// 13. Print numbers divisible by 7 from 1 to 50
+// Use modulo % and loop.
+
+// for(let i = 1; i < 51; i++){
+//     if(i % 7 === 0) console.log(i);    
+// }
+
+// --------------------------------------------------------------------
+
+// 14. Sum of all odd numbers from 1 to 30
+// Add only odd numbers. Print final sum.
+
+// let oddSum = 0;
+// for(let i = 1; i < 31; i++){
+//     if(i%7 === 0) oddSum+=i;
+// }
+
+// alert(`sum of all odd numbers from 1 to 30 is ${oddSum}`)
+
+// --------------------------------------------------------------------
+
+// 15. Keep asking number until user enters an even number
+// Use while loop. Stop only if input is even.
+
+
+// while(true){
+    //     let userInput = prompt("Enter even number");
+//     if(userInput === null)
+//     {
+//         alert("You cancelled the program"); 
+//         break;
+//     }
+
+//     userInput = Number(userInput.trim());
+
+//     if(isNaN(userInput)){
+//         alert("You need to enter valid number");
+//         continue;
+//     }
+//     if(userInput % 2 === 0){
+//         alert("Finally cracked! Happy Coding");
+//         break;
+//     }
+// }
+
+// --------------------------------------------------------------------
+
+// 16. Print numbers between two user inputs
+// Input start and end using prompt() → print all between.
+
+// const start = Number(prompt("Enter start number"));
+// let end = Number(prompt("Enter end number"));
+
+// while (end <= start) {
+//     end = Number(prompt(`Enter a number greater than ${start}`));
+// }
+
+// for (let i = start ; i < end; i++) {
+//     console.log(i);
+// }
+
+// --------------------------------------------------------------------
+
+// 17. Print only first 3 odd numbers from 1 to 20
+// Use loop. Stop with break after 3 odd prints.
+
+// let counter = 3;
+// for(let i = 1; counter > 0; i+=2){
+//     console.log(i); 
+//     counter--;
+// }
+
+// --------------------------------------------------------------------
+
+// 18. Ask user 5 numbers. Count how many are positive
+// Use loop + condition + counter.
+
+// let counter = 0;
+
+// for(let i = 1; i < 6; i++){
+//     let user = prompt("Enter a number");
+
+//     if(user === null){
+//         alert("you cancelled it");
+//         break;
+//     }
+
+//     user = user.trim();
+
+//     if(!user || isNaN(user)) {
+//         alert("you need to enter a number");
+//         continue;
+//     }
+
+//     user = Number(user);
+//     if(user > 0) counter++;
+
+// }
+
+// alert(`you entered ${counter} positive numbers`);
+
+// --------------------------------------------------------------------
+
+// 19. ATM Simulator – Allow 3 withdrawals
+// Start with ₹1000 balance. Ask withdrawal amount 3 times.
+// If enough balance → deduct
+// Else → print “Insufficient balance”
+
+// let balance = 1000;
+
+// for(let i = 1; i < 4; i++){
+//     if(balance <=200){
+//         alert("insufficient balance");
+//         break;
+//     }
+    
+//     let user = prompt("enter your amount");
+//     if(user === null){
+//         alert("you cancelled it");
+//         continue;
+//     }
+
+//     user = user.trim();
+
+//     if(!user || isNaN(user)){
+//         alert("You need to enter valid number");
+//         continue;
+//     }
+
+//     user = Number(user);
+
+//     if(user > balance){
+//         alert("Withdrawl amount exceeds balance amount");
+//         continue;
+//     }
+
+//     balance -= user;
+
+// }
+
+// alert(`you reached your limit and your remaining balance is ${balance}`);
+
+// --------------------------------------------------------------------
