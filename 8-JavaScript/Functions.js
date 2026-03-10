@@ -69,7 +69,7 @@ function add(v,p){
 }
 // here if no argument is passed to function call, theere won't be any error
 // those parameters will become undefined (each).
-add();
+// add();
 
 // we can have default values to the parameters in the function definition, 
 // if in case of function call doesn't provide any value in its arguments
@@ -79,9 +79,84 @@ function add1(v=0,p=0){
 
 //------------- REST AND SPREAD OPERATORS-------
 
-// function any(...val){
-//     console.log(val);
+function any(...val){
+    console.log(val);
+    
+}
+
+// any(1, 2, 3,4, "sai");
+
+// if arguments are more, we need to build those many parameters, 
+// But to avoid them, we use REST operator in the parameters
+// if ... is in parameters of function, we call it REST operator
+// if ... is in arrays/objects, we call it SPREAD operator
+
+
+//--------------RETURN VALUES AND EARLY RETURNS -----
+
+//If we go to any place, we find some items interesting and we pick them up (with/without their consent). After checking and observing that item, we will return the item from where we took it.
+
+// Coming to JavaScript, return does the same work. Whenever a function having a return and
+// it is called somewhere in the code. Return keyword sends the data to that place.
+
+// function hello(){
+//     return 2;
+// }
+
+// let val = hello();
+
+// console.log(val);
+
+// Early returns: Exit the function immediately when a condition is wrong preventing deeper nesting.
+// (we handle problem first).
+
+// function withdrawal(amt, bal){
+//     if(amt<=0){
+//         console.log("Invalid amount");
+//         return;
+//     }
+
+//     if(bal < amt){
+//         console.log("Not enough Balance");
+//         return;
+//     }
+//     console.log("Withdrawal Successful");
     
 // }
 
-// any(1, 2, 3,4, "sai");
+// 1. Handle edge cases first
+// 2. Return early
+// 3. Write the main logic last
+
+// Real world case
+
+// function login(user) {
+//   if (user) {
+//     if (user.isActive) {
+//       console.log("Login successful");
+//     } else {
+//       console.log("User not active");
+//     }
+//   } else {
+//     console.log("User not found");
+//   }
+// }
+
+// full of nesting --------------------------
+
+// function login(user) {
+//   if (!user) {
+//     console.log("User not found");
+//     return;
+//   }
+
+//   if (!user.isActive) {
+//     console.log("User not active");
+//     return;
+//   }
+
+//   console.log("Login successful");
+// }
+
+// early return------------------------------
+
