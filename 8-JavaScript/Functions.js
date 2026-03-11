@@ -160,3 +160,44 @@ function any(...val){
 
 // early return------------------------------
 
+//-------------First class functions -----------
+
+// First class functions: functions are treated like normal values (without function name)
+
+function greet(val){
+    val();
+}
+
+function sayhi(){
+    console.log("hi");
+}
+
+greet(sayhi);
+
+
+// If a function can do these 3 things, it's first-class:
+
+// 1️⃣ Stored in a variable
+
+const greet = function() {
+  console.log("Hello");
+};
+
+
+// 2️⃣ Passed to another function
+
+function run(fn) {
+  fn();
+}
+
+// run(greet);
+
+// 3️⃣ Returned from a function
+
+function createGreet() {
+  return function() {
+    console.log("Hello");
+  };
+}
+
+//--------------Higher Order Functions -----------------------
