@@ -297,18 +297,99 @@ function trial(){
 //---------------- HOISTING IN FUNCTION DECLARATION AND EXPRESSION ----------------------
 //------------Functions Declaration allow full hoisting
 
-test();
+// test();
 
-function test(){
-    console.log("testing hoisting in declaration");
-}
+// function test(){
+//     console.log("testing hoisting in declaration");
+// }
 
 
 //---------Function Expression doesn't hoisting, (let/const)later goes to TDZ ---------
 //----- var allows partial hoisting
-test1();
+// test1();
 
-let test1 = function(){
-    console.log("testing hoisting in expression");
-}
+// let test1 = function(){
+//     console.log("testing hoisting in expression");
+// }
 
+//----------BMI calculator -------------------
+
+// function bmi(wt, ht){
+//     return wt/(ht*ht);
+// }
+
+// console.log(bmi(60, 1.8).toFixed(2));
+
+//-------- Reusable Discount Calculator (CLOSURES) -----
+
+// function discountCalculator(discount){
+//     return function(price){
+//         return price - (price * (discount/100));
+//     }
+// }
+
+// let discount = discountCalculator(10);
+
+// console.log("discounted price", discount(200));
+
+// -------------------- COUNTER -----------------------
+
+// function counter(){
+//     let count = 0;
+//     return function(){
+//         count++;
+//         return count;
+//     }
+// }
+
+// let firstcount = counter();
+
+// console.log(firstcount());
+// console.log(firstcount());
+// console.log(firstcount());
+
+
+// for a normal function, once the function ends, the data inside doesn't exists anymore. 
+// But in closuer, the variable data is kept hold
+
+// let secondCount = counter();
+// console.log(secondCount());
+
+// here we freshly called the count function, so it again goes from start
+
+//---------- Pure function that transforms a value -------//
+
+// let a = 2;
+
+// function trail(val){
+//     return val*2;
+// }
+
+// console.log(trail(a), a);
+
+// trail function didn't change a value
+
+//----------IIFE for variable isolation --------------------//
+
+// (function(){
+//     const password = "secret";
+//     console.log(password);
+// })();
+
+// console.log(password);
+
+// we can't access password as it is inside IIFE
+
+//-------------------------------------------------------------
+// Arraw function vs function
+// difference is this keyword (object creation), 
+// arrow function shouldn't be used in objects because it arrow function can't hold this inside the object.
+
+//-------------------------------------------------------------
+
+// function hoisting vs tdz
+// functions allow full hoisting, but variables can't (function declaration)
+// var - hoisting - undefined
+// let/var/const - tdz
+
+//---------------------
