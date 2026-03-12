@@ -30,30 +30,30 @@
 
 // Function Declaration
 
-function dec(){
-    console.log("Function Declaration");
+// function dec(){
+//     console.log("Function Declaration");
     
-}
+// }
 
 // Function Expression
 
-let fnc = function(){
-    console.log("Function Expression");
-}
+// let fnc = function(){
+//     console.log("Function Expression");
+// }
 
 // It may not make sense, but JS itself doesn't make sense. so, don't complain
 
 // Fat Arrow Functions () fat, => arrow
 
-let cnp = () => {
-    console.log("Fat arrow function");
-}
+// let cnp = () => {
+//     console.log("Fat arrow function");
+// }
 
 //--------------------ARGUMENTS (function call) AND PARAMETERS (function definition)---------------------------
 
-function dance(naach){
-    console.log(`${naach} is dancing`);
-}
+// function dance(naach){
+//     console.log(`${naach} is dancing`);
+// }
 
 // in the function definition, parameters
 // dance(sai);
@@ -164,40 +164,65 @@ function any(...val){
 
 // First class functions: functions are treated like normal values (without function name)
 
-function greet(val){
-    val();
-}
+// function greet(val){
+//     val();
+// }
 
-function sayhi(){
-    console.log("hi");
-}
+// function sayhi(){
+//     console.log("hi");
+// }
 
-greet(sayhi);
+// greet(sayhi);
 
 
 // If a function can do these 3 things, it's first-class:
 
 // 1️⃣ Stored in a variable
 
-const greet = function() {
-  console.log("Hello");
-};
+// const great = function() {
+//   console.log("Hello");
+// };
 
 
 // 2️⃣ Passed to another function
 
-function run(fn) {
-  fn();
-}
+// function run(fn) {
+//   fn();
+// }
 
 // run(greet);
 
 // 3️⃣ Returned from a function
 
-function createGreet() {
-  return function() {
-    console.log("Hello");
-  };
-}
+// function createGreet() {
+//   return function() {
+//     console.log("Hello");
+//   };
+// }
 
 //--------------Higher Order Functions -----------------------
+// Functions that can either accept another function as a parameter or return a function.
+
+
+// case 1 : accept a function as a parameter
+const great = function() {
+  console.log("Hello");
+};
+
+function hof(val){
+    val();
+}
+
+// hof(great);
+
+// case 2 : return a function
+
+function hofreturn(){
+    return () =>{
+        console.log("this is case 2");
+    }
+}
+
+// here hofreturn() returns a function, so that function need to be called again
+hofreturn()();
+
