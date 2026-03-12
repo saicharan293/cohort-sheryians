@@ -289,7 +289,26 @@ function trial(){
 //------------------ Immediately Invoked Function Expression (IIFE) -----------------------
 // Function that runs intantly
 
-(function(){
-    console.log("IIFE");
-})();
+// (function(){
+//     console.log("IIFE");
+// })();
+
+
+//---------------- HOISTING IN FUNCTION DECLARATION AND EXPRESSION ----------------------
+//------------Functions Declaration allow full hoisting
+
+test();
+
+function test(){
+    console.log("testing hoisting in declaration");
+}
+
+
+//---------Function Expression doesn't hoisting, (let/const)later goes to TDZ ---------
+//----- var allows partial hoisting
+test1();
+
+let test1 = function(){
+    console.log("testing hoisting in expression");
+}
 
