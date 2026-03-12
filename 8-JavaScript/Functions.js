@@ -205,24 +205,45 @@ function any(...val){
 
 
 // case 1 : accept a function as a parameter
-const great = function() {
-  console.log("Hello");
-};
+// const great = function() {
+//   console.log("Hello");
+// };
 
-function hof(val){
-    val();
-}
+// function hof(val){
+//     val();
+// }
 
 // hof(great);
 
 // case 2 : return a function
 
-function hofreturn(){
-    return () =>{
-        console.log("this is case 2");
-    }
-}
+// function hofreturn(){
+//     return () =>{
+//         console.log("this is case 2");
+//     }
+// }
 
 // here hofreturn() returns a function, so that function need to be called again
-hofreturn()();
+// hofreturn()();
+
+// -------------- Pure vs Impure functions ---------------------
+
+// pure function : which changes value that is present outside the function
+
+let a = 12;
+
+function test(){
+    console.log("a value remained", a);
+}
+
+test();
+// test is pure function , it didn't modify a value
+
+function trail(){
+    a++;
+    console.log("a value changed", a);
+}
+
+trail();
+// trail is impure function, it modified a value
 
