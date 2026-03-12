@@ -230,20 +230,57 @@ function any(...val){
 
 // pure function : which changes value that is present outside the function
 
-let a = 12;
+// let a = 12;
 
-function test(){
-    console.log("a value remained", a);
-}
+// function test(){
+//     console.log("a value remained", a);
+// }
 
-test();
+// test();
 // test is pure function , it didn't modify a value
 
-function trail(){
-    a++;
-    console.log("a value changed", a);
-}
+// function trail(){
+//     a++;
+//     console.log("a value changed", a);
+// }
 
-trail();
+// trail();
 // trail is impure function, it modified a value
 
+// -------------------- CLOSURES -------------------------------------
+
+// Closures are the funtion that returns another function, 
+// this return function always use a variable that is present in closure function
+
+
+function trial(){
+    let a = 12;
+    return function(){
+        console.log(a);   
+    }
+}
+
+// here, the returning function is using a variable which is present in trail function
+
+// -------------------- CLOSURES VS HOF -------------------------------
+
+// A function that returns another function is a Higher-Order Function.
+// It becomes a closure when the returned function captures 
+// and uses variables from its lexical scope (outer function).
+
+
+// -------------------- LEXICAL SCOPING (Physical Existance) -----------------------------
+
+function test1(){
+    let a = 12;
+    function test2(){
+        let b = 2;
+        function test3(){
+            let c = 4;
+        }
+    }
+}
+
+// a can be accessed in the entire test1 function. (a can be accessed by test1, test2, test3)
+// b can be accessed in the entire test2 function. (b can be accessed by test2, test3)
+// c can be accessed in the entire test3 function. (c can be accessed by test3)
