@@ -271,16 +271,25 @@ function trial(){
 
 // -------------------- LEXICAL SCOPING (Physical Existance) -----------------------------
 
-function test1(){
-    let a = 12;
-    function test2(){
-        let b = 2;
-        function test3(){
-            let c = 4;
-        }
-    }
-}
+// function test1(){
+//     let a = 12;
+//     function test2(){
+//         let b = 2;
+//         function test3(){
+//             let c = 4;
+//         }
+//     }
+// }
 
 // a can be accessed in the entire test1 function. (a can be accessed by test1, test2, test3)
 // b can be accessed in the entire test2 function. (b can be accessed by test2, test3)
 // c can be accessed in the entire test3 function. (c can be accessed by test3)
+
+
+//------------------ Immediately Invoked Function Expression (IIFE) -----------------------
+// Function that runs intantly
+
+(function(){
+    console.log("IIFE");
+})();
+
