@@ -100,3 +100,47 @@
 // let ans = arr.reduce(function(accumulator, val){
 //     return accumulator+val
 // }, 0);
+
+//---------------------- FIND ----------------------
+// it returns the value that satisfies the condition
+
+// let arr = [1, 2, 1, 3, 4, 5];
+
+// let num = arr.find(function(val){
+//     return val === 1;
+// });
+
+//-------------------- SOME --------------------------
+// it returns the boolean result as true, if atleast one item satisfies condition
+
+// let arr = [10, 30, 32, 90];
+
+// let res = arr.some(function(val){
+//     return val > 32;
+// })
+
+
+//-------------------- EVERY ----------------
+// it returns boolean result as true, only if all the items satisfies condtion
+
+// let arr = [10, 30, 32, 90];
+
+// let eve = arr.every(function(e){
+//     return e > 5
+// })
+
+// -------------------DESTRUCTURING -------------------
+
+// let arr= [ 1, 2, 3, 4, 5];
+
+// 1, 2 get copied to a, b
+// 4 get copied to d, with gap for 3
+// let [a,b, ,d] = arr;
+
+//------------------- SPREAD (arrays, object) ------------------------
+
+// let arr= [ 1, 2, 3, 4, 5];
+
+// to copy the values in a new array 
+// without referencing to the parent array
+// let arr2 = [...arr];
