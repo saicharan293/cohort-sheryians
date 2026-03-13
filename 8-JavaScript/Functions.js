@@ -393,3 +393,18 @@ function trial(){
 // let/var/const - tdz
 
 //---------------------
+// Parameters - required, destructured, rest, default
+
+// required parameters
+// function abcd(a, b, c, d){
+//     //if no arguments are sent through funciton call, then the parameter become undefined, so they are required
+//     console.log(a, b, c, d);
+// }
+
+// default parameters
+function abcd(a = 0, b = 0){
+    console.log(a, b);
+    
+}
+abcd();
+

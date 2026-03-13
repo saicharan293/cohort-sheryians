@@ -59,6 +59,7 @@
 
 // arr.sort();
 
+// for numbers
 // let sr = arr.sort(function(a, b){
 //     return a - b
 // })
@@ -186,6 +187,8 @@
 //-------------- Sort the array alphabetically and then reverse it ---------------
 
 // let names = ["Zara", "Arjun", "Mira", "Bhavya"];
+
+// only .sort() for characters
 // names.sort().reverse();
 
 //-------------------use map to square each number ---------------------------
