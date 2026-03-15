@@ -15,7 +15,7 @@ const blockwdt = 50;
 let highScore = localStorage.getItem("high") || 0;
 highScoreEle.innerHTML = highScore;
 let score = 0;
-let time = `00-00`;
+let time = `00:00`;
 
 const cols = Math.floor(board.clientWidth/blockwdt);
 const rows = Math.floor(board.clientHeight/blockht);
@@ -45,7 +45,7 @@ for (let row = 0; row < rows; row++){
         const block = document.createElement("div");
         block.classList.add("block");
         board.appendChild(block);
-        block.innerText=`${row}-${col}`;
+        // block.innerText=`${row}-${col}`;
         blocks[`${row}-${col}`] = block;
     }
 }
@@ -111,7 +111,16 @@ startbtn.addEventListener("click",()=>{
     }, 300);
 
     timerIntervalId = setInterval(() => {
-        let [min, sec] = time.split("-");
+        let [min, sec] = time.split(":").map(Number);
+
+        if(sec == 59){
+            min += 1;
+            sec = 0;
+        } else {
+            sec += 1;
+        }
+        time = `${min} : ${sec}`;
+        timeEle.innerText=time
     }, (1000));
 
 })
@@ -126,7 +135,7 @@ function restartgame(){
     food = { x: Math.floor(Math.random()*rows), y: Math.floor(Math.random()*cols)};
     direction = "down";
     score = 0;
-    time = '00-00';
+    time = '00:00';
     scoreEle.innerText = score;
     timeEle.innerText = time;
     highScore.innerText = highScore;

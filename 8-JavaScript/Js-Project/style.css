@@ -14,7 +14,7 @@ html, body {
     /* Background Colors  */
     --bg-primary-color : #0c0c0c;
     --bg-fill-color : #fdfdfc;
-    --bg-food-color : #343434;
+    --bg-food-color : #b20808;
 
 
     /* Text Colors  */
@@ -69,7 +69,8 @@ section{
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: rgb(9, 9, 75);
+    /* background-color: rgb(9, 9, 75); */
+    background-color: rgb(8, 8, 35);
     gap: var(--space-lg);
 }
 
@@ -87,6 +88,7 @@ section .infos{
 
 .board{
     border: 1px solid var(--border-primary-color);
+    background-color: rgb(6, 2, 41);
     flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
@@ -96,6 +98,7 @@ section .infos{
 .block{
     /* width: 30px;
     height: 30px; */
+    border-radius: 50%;
     border: 1px solid var(--border-primary-color);
 }
 
