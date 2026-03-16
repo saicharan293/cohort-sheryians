@@ -10,15 +10,13 @@ html, body {
 }
 
 :root{
-
     /* Background Colors  */
     --bg-primary-color : #0c0c0c;
-    --bg-fill-color : #fdfdfc;
-    --bg-food-color : #b20808;
-
+    --bg-fill-color : bisque;
+    --bg-food-color : rgb(162, 5, 5);
 
     /* Text Colors  */
-    --text-primary-color :  #f0f0f0;
+    --text-primary-color : #f0f0f0;
 
     /* Spacing variables  */
     --space-xs: 4px;
@@ -29,18 +27,19 @@ html, body {
     --space-2xl: 40px;
     --space-3xl: 48px;
 
-    /* Border color */
-    --border-primary-color: #333;
+    /* Border variables */
+    --border-primary-color : #333333;
 
-    /* Border radius */
-    --border-radius-xs: 4px;
-    --border-radius-sm: 8px;
-    --border-radius-md: 12px;
-    --border-radius-lg: 16px;
-    --border-radius-xl: 20px;
-    --border-radius-2xl: 24px;
+    /* Border Radius */
+    --bordre-radius-xs: 4px;
+    --bordre-radius-sm: 8px;
+    --bordre-radius-md: 12px;
+    --bordre-radius-lg: 16px;
+    --bordre-radius-xl: 20px;
+    --bordre-radius-2xl: 24px;
 
 }
+
 body {
     background-color : var(--bg-primary-color);
     color: var(--text-primary-color);
@@ -52,25 +51,10 @@ main, section{
     height: 100%;
 }
 
-.btn{
-    padding: var(--space-sm);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    transition: all .3s ease;
-}
-
-.btn:hover{
-    transform: scale(1.1);
-}
-
 section{
     padding: var(--space-2xl);
     display: flex;
     flex-direction: column;
-    height: 100%;
-    /* background-color: rgb(9, 9, 75); */
-    background-color: rgb(8, 8, 35);
     gap: var(--space-lg);
 }
 
@@ -83,31 +67,49 @@ section .infos{
 .info{
     padding: var(--space-sm) var(--space-md);
     border: 1px solid var(--border-primary-color);
-    border-radius: var(--border-radius-sm);
+    border-radius: var(--bordre-radius-sm);
 }
 
 .board{
-    border: 1px solid var(--border-primary-color);
-    background-color: rgb(6, 2, 41);
+    border:  1px solid var(--border-primary-color);
     flex-grow: 1;
+    /* background-color: bisque; */
+    border-radius: 5px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
+
+}
+
+.head{
+    background-color: #ffd166;
+    border-radius: 50%;
 }
 
 .block{
     /* width: 30px;
     height: 30px; */
-    border-radius: 50%;
-    border: 1px solid var(--border-primary-color);
+    border:  1px solid var(--border-primary-color);
 }
 
 .fill{
     background-color: var(--bg-fill-color);
+    border-radius: 50%;
 }
 
 .food{
-    background-color: var(--bg-food-color);
+    background: var(--bg-food-color);
+    border-radius: 50%;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from{
+        transform: scale(.6);
+    }
+    to{
+        transform: scale(1);
+    }
 }
 
 .modal{
@@ -115,11 +117,11 @@ section .infos{
     width: 100vw;
     position: fixed;
     top: 0;
-    background-color: #35353587;
+    background-color: rgba(3, 20, 46, 0.804);
     backdrop-filter: blur(4px);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .modal .start-game,
@@ -127,9 +129,21 @@ section .infos{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-lg);
 }
 
 .modal .game-over{
     display: none;
+}
+
+button{
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--bordre-radius-sm);
+    transition: all.3s ease;
+    cursor: pointer;
+}
+
+button:hover{
+    transform: scale(1.2);
 }
