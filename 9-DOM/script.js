@@ -45,3 +45,14 @@
 
 // But for whole numbers, .floor() to get least close whole number
 // Math.floor(Math.random()*10)
+
+let btn = document.querySelector("button");
+let box = document.querySelector(".box");
+
+btn.addEventListener("click",()=>{
+    let x = Math.floor(Math.random()*255);
+    let y = Math.floor(Math.random()*255);
+    let z = Math.floor(Math.random()*255);
+    box.style.backgroundColor = `rgb(${x},${y},${z})`;
+    
+})
