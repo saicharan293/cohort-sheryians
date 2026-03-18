@@ -9,7 +9,9 @@ html, body {
     width : 100%;
 }
 
-body {
+main {
+    height: 100%;
+    width: 100%;
     background-color : black;
     display: flex;
     flex-direction: column;
@@ -18,12 +20,12 @@ body {
     gap: 20px;
 }
 
-.box{
-    height: 200px;
-    width: 200px;
-    background-color: rgb(20, 120, 80);
-    border: 2px solid white;
+h1{
+    font-size: 5rem;
+    background-color: lightseagreen;
+    padding: 30px 60px;
     border-radius: 10px;
+    font-family: monospace;
 }
 
 .btn{

@@ -46,13 +46,60 @@
 // But for whole numbers, .floor() to get least close whole number
 // Math.floor(Math.random()*10)
 
-let btn = document.querySelector("button");
-let box = document.querySelector(".box");
+// let btn = document.querySelector("button");
+// let box = document.querySelector(".box");
+
+// btn.addEventListener("click",()=>{
+//     let x = Math.floor(Math.random()*255);
+//     let y = Math.floor(Math.random()*255);
+//     let z = Math.floor(Math.random()*255);
+//     box.style.backgroundColor = `rgb(${x},${y},${z})`;
+
+// })
+
+var arr = [ 
+    {
+        team: 'CSK',
+        primary: 'yellow',
+        secondary: 'blue'
+    },
+    {
+        team: 'RCB',
+        primary: 'red',
+        secondary: 'black'
+    },
+    {
+        team: 'MI',
+        primary: 'blue',
+        secondary: 'gold'
+    },
+    {
+        team: 'KKR',
+        primary: 'purple',
+        secondary: 'gold'
+    },
+    {
+        team: 'SRH',
+        primary: 'orange',
+        secondary: 'black'
+    },
+    {
+        team: 'PBKS',
+        primary: 'crimson',
+        secondary: 'silver'
+    },
+]
+
+
+var btn = document.querySelector("button");
+
+var h1 = document.querySelector("h1");
+
+var main = document.querySelector("main");
 
 btn.addEventListener("click",()=>{
-    let x = Math.floor(Math.random()*255);
-    let y = Math.floor(Math.random()*255);
-    let z = Math.floor(Math.random()*255);
-    box.style.backgroundColor = `rgb(${x},${y},${z})`;
-    
+    var winner = arr[Math.floor(Math.random()*arr.length)];
+    h1.innerHTML=winner.team;
+    h1.style.backgroundColor = winner.primary;
+    main.style.backgroundColor = winner.secondary;
 })
