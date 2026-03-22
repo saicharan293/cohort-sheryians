@@ -2,31 +2,21 @@
 var btn = document.querySelector("button");
 var main = document.querySelector("main");
 
+var arr = ['Hey! I am Sai Charan', 'Sheryians is Best','JavaScript is Tricky','React is Library', 'Next is Framework','Angular is Framework'];
+
+
 btn.addEventListener("click", function(e){
-    let div = document.createElement("div");
-    let divSize = 50
+    var h1 = document.createElement("h1");
+    var x = Math.random()*80;
+    var y = Math.random()*80;
+    var scale = Math.random()*3;
 
-    let rect = main.getBoundingClientRect();
-
-    let x = Math.floor(Math.random()*rect.width);
-    let y = Math.floor(Math.random()*rect.height);
-
-    if(x+divSize>rect.width || y+divSize>rect.height){
-        return;
-    }
-    let r = Math.floor(Math.random()*360);
-
-    let c1 = Math.floor(Math.random()*256);
-    let c2 = Math.floor(Math.random()*256);
-    let c3 = Math.floor(Math.random()*256);
-
-    div.style.height=divSize+'px';
-    div.style.width = divSize+'px';
-    div.style.backgroundColor=`rgb(${c1}, ${c2}, ${c3})`;
-    div.style.left=`${x}px`;
-    div.style.top=`${y}px`;
-    div.style.rotate=`${r}deg`;
-    div.style.position='absolute';
-
-    main.appendChild(div)
+    var num = Math.floor(Math.random()*arr.length);
+    
+    h1.innerText=arr[num];
+    h1.style.position='absolute';
+    h1.style.left = x+'%';
+    h1.style.top = y+'%';
+    h1.style.scale=scale;
+    main.appendChild(h1);
 })
