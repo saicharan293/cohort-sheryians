@@ -9,34 +9,31 @@ html, body {
     width : 100%;
 }
 
-main {
+body {
+    background-color : black;
+    color: wheat;
+}
+
+main{
     height: 100%;
     width: 100%;
-    background-color : black;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
 }
 
-h1{
-    font-size: 5rem;
-    background-color: lightseagreen;
-    padding: 30px 60px;
-    border-radius: 10px;
-    font-family: monospace;
-}
-
-.btn{
+button{
     padding: 10px 20px;
+    font-weight: 400;
     background-color: crimson;
-    border-radius: 5px;
+    color: white;
     border: none;
     cursor: pointer;
+    border-radius: 2px;
+    position: relative;
+    z-index: 5;
 }
 
-.btn:active{
-    /* background-color: blueviolet; */
-    scale: .95;
+button:active{
+    scale: .9;
 }
