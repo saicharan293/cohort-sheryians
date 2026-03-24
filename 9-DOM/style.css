@@ -18,73 +18,48 @@ main{
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
-
 
 .card{
     /* height: 300px; */
-    width: 500px;
+    width: 200px;
     background-color: white;
-    border-radius: 10px;
-    padding: 30px 50px;
+    padding: 20px;
+    position: relative;
 }
 
-.card p{
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.card span{
-    font-weight: 600;
-    color: royalblue;
-    font-weight: 500;
-}
-
-.card .res{
-    margin-top: 10px;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-
-.outer{
-    height: 20px;
+.card img{
     width: 100%;
-    border-radius: 50px;
-    background-color: rgba(194, 188, 188, 0.788);
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
-.inner{
-    height: 100%;
-    width: 0%;
-    background-color: green;
-    border-radius: 50px;
+
+.card h2{
+    font-size: 20px;
+    text-align: center;
 }
 
-.bottom{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
+.card i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    opacity: 0;
+    background: linear-gradient(to right bottom, purple, rgb(237, 73, 210));
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    transform: translate(-50%, -50%) scale(0) rotate(-60deg);
+    transition: all cubic-bezier(.65,1,.77,1.44) .5s;
 }
 
-.bottom h2{
-    font-size: 60px;
-}
+.card div{
+    position: relative;
+    overflow: hidden;
 
-.bottom button{
-    padding: 12px 25px;
-    background-color: green;
-    color: white;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-}
-
-.bottom button:active{
-    scale: .8;
 }

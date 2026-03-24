@@ -34,29 +34,22 @@
 
 // clearInterval(interval);
 
-let outer = document.querySelector(".outer");
-let inner = document.querySelector(".inner");
-let per = document.querySelector(".per");
-let grow = 0;
-let downloadbtn = document.querySelector("button");
-let res = document.querySelector(".res");
+let img = document.querySelector("img");
 
-downloadbtn.addEventListener("click", function(e){
-    e.preventDefault();
-    this.style.pointerEvents = "none";
+let heart = document.querySelector("i");
 
-    var num = 50 + Math.floor(Math.random()*50);
-
-    let interval = setInterval((e)=>{
-        grow++;
-        per.innerHTML=grow+"%";
-        inner.style.width = grow+"%";
-    }, num);
-
+img.addEventListener("dblclick", function(e){
+    console.log("dbl");
+    
+    heart.style.opacity=1;
+    heart.style.transform=`translate(-50%, -50%) scale(1) rotate(0)`
     setTimeout(() => {
-        clearInterval(interval);
-        this.innerHTML="Downloaded";
-        this.style.opacity=0.5;
-        res.innerText= `Downloaded in ${num/10} seconds`;
-    }, num*100);
+        heart.style.transform=`translate(-50%, -200%) scale(1) rotate(60deg)`
+    }, 800);
+    setTimeout(() => {
+        heart.style.opacity=0;
+    }, 1000);
+    setTimeout(() => {
+        heart.style.transform=`translate(-50%, -50%) scale(0) rotate(60deg)`
+    }, 1200);
 })
