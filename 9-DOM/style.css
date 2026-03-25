@@ -17,49 +17,44 @@ body {
 main{
     height: 100%;
     width: 100%;
+    padding: 50px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
 }
+
 
 .card{
-    /* height: 300px; */
-    width: 200px;
+    /* height: 350px; */
+    width: 280px;
     background-color: white;
-    padding: 20px;
-    position: relative;
-}
-
-.card img{
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    text-align: center;
+    padding: 25px;
     border-radius: 10px;
 }
 
-
-.card h2{
-    font-size: 20px;
-    text-align: center;
+.card img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    
 }
 
-.card i{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    opacity: 0;
-    background: linear-gradient(to right bottom, purple, rgb(237, 73, 210));
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
-    transform: translate(-50%, -50%) scale(0) rotate(-60deg);
-    transition: all cubic-bezier(.65,1,.77,1.44) .5s;
+.card h3{
+    font-size: 26px;
+    white-space: nowrap;
 }
 
-.card div{
-    position: relative;
-    overflow: hidden;
+.card h4{
+    font-size: 18px;
+    margin-top: 10px;
+    color: crimson;
+    margin-bottom: 10px;
+}
 
+.card p{
+    font-size: 13px;
 }
