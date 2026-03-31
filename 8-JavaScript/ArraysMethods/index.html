@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Array Methods Explorer</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background: #2e2e2e;
+    color: #fefefe;
+  }
+
+  h2 {
+    margin-bottom: 5px;
+  }
+
+  p {
+    color: #fefefe;
+    font-size: 14px;
+  }
+
+  #arrayContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .box {
+    width: 60px;
+    height: 60px;
+    background: #ddd;
+    color: #2e2e2e;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .box:hover {
+    background: #4f8cff;
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .selected {
+    background: #ff9800 !important;
+    color: white;
+    transform: scale(1.15);
+  }
+
+  .section {
+    margin-top: 15px;
+  }
+
+  .section h4 {
+    margin-bottom: 5px;
+    color: #fefefe;
+  }
+
+  button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #4f8cff;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #3a6fd8;
+  }
+
+  #output {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  #desc {
+    font-size: 14px;
+    color: #fefefe;
+    margin-top: 10px;
+  }
+
+  .controls {
+    margin-top: 20px;
+  }
+
+  /* 📱 Responsive */
+  @media (max-width: 600px) {
+    .box {
+      width: 50px;
+      height: 50px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<h2>🔍 Array Methods Explorer</h2>
+<p>Select a number to explore array operations</p>
+
+<div id="arrayContainer"></div>
+
+<div id="actions"></div>
+<div id="desc"></div>
+
+<div id="output"></div>
+
+<div class="controls">
+  <button onclick="reset()">Reset Array</button>
+</div>
+
+<script>
+    let arr = [1, 2, 3, 4];
+    let selected = null;
+
+    const container = document.getElementById("arrayContainer");
+    const actionsDiv = document.getElementById("actions");
+    const output = document.getElementById("output");
+    const desc = document.getElementById("desc");
+
+    function renderArray() {
+    container.innerHTML = "";
+
+    arr.forEach((num, index) => {
+        const div = document.createElement("div");
+        div.className = "box";
+        div.textContent = num;
+
+        div.onclick = () => select(div, num, index);
+
+        container.appendChild(div);
+    });
+    }
+
+    function select(el, num, index) {
+    document.querySelectorAll(".box").forEach(b => b.classList.remove("selected"));
+    el.classList.add("selected");
+
+    selected = { num, index };
+    showActions();
+    }
+
+    function showActions() {
+    actionsDiv.innerHTML = `
+        <div class="section">
+        <h4>Element Actions</h4>
+        <button onclick="doubleSelected()">Double (forEach idea)</button>
+        <button onclick="removeSelected()">Remove (filter)</button>
+        </div>
+
+        <div class="section">
+        <h4>Transform & Analyze</h4>
+        <button onclick="run('map')">map</button>
+        <button onclick="run('filter')">filter</button>
+        <button onclick="run('reduce')">reduce</button>
+        </div>
+
+        <div class="section">
+        <h4>Array Structure</h4>
+        <button onclick="run('push')">push (end)</button>
+        <button onclick="run('pop')">pop (end)</button>
+        <button onclick="run('unshift')">unshift (start)</button>
+        <button onclick="run('shift')">shift (start)</button>
+        </div>
+    `;
+
+    desc.textContent = "Element actions affect one item. Array methods affect the whole array.";
+    }
+
+    // forEach concept
+    function doubleSelected() {
+    desc.textContent = "forEach → applies an operation to each element";
+
+    let result = [];
+    arr.forEach(n => result.push(n * 2));
+
+    output.textContent = `Doubled: [${result}]`;
+    }
+
+    // filter use case
+    function removeSelected() {
+    desc.textContent = "filter → removes selected element";
+
+    arr = arr.filter((_, i) => i !== selected.index);
+    renderArray();
+
+    output.textContent = `Updated: [${arr}]`;
+    }
+
+    // general methods
+    function run(type) {
+
+    if (type === "map") {
+        desc.textContent = "map → transforms all elements";
+        const res = arr.map(n => n * 2);
+        output.textContent = `[${res}]`;
+    }
+
+    if (type === "filter") {
+        desc.textContent = "filter → keeps even numbers";
+        const res = arr.filter(n => n % 2 === 0);
+        output.textContent = `[${res}]`;
+    }
+
+    if (type === "reduce") {
+        desc.textContent = "reduce → sums all elements";
+        const res = arr.reduce((a, b) => a + b, 0);
+        output.textContent = `Sum: ${res}`;
+    }
+
+    if (type === "push") {
+        desc.textContent = "push → adds element to the end";
+        arr.push(Math.floor(Math.random() * 10));
+        renderArray();
+        output.textContent = `[${arr}]`;
+    }
+
+    if (type === "pop") {
+        desc.textContent = "pop → removes last element";
+        arr.pop();
+        renderArray();
+        output.textContent = `[${arr}]`;
+    }
+
+    if (type === "unshift") {
+        desc.textContent = "unshift → adds element to the beginning";
+        arr.unshift(Math.floor(Math.random() * 10));
+        renderArray();
+        output.textContent = `[${arr}]`;
+    }
+
+    if (type === "shift") {
+        desc.textContent = "shift → removes first element";
+        arr.shift();
+        renderArray();
+        output.textContent = `[${arr}]`;
+    }
+    }
+
+    function reset() {
+    arr = [1, 2, 3, 4];
+    selected = null;
+    output.textContent = "";
+    desc.textContent = "";
+    actionsDiv.innerHTML = "";
+    renderArray();
+    }
+
+    renderArray();
+</script>
+
+</body>
+</html>
