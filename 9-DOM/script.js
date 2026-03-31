@@ -1,20 +1,10 @@
+// using childNodes
 
-var h1 = document.querySelector("h1");
-var sounds = {
-    KeyA: new Audio('./keyboardAudios/24.mp3'),
-    KeyS: new Audio('./keyboardAudios/29.mp3'),
-    KeyD: new Audio('./keyboardAudios/36.mp3'),
-    KeyF: new Audio('./keyboardAudios/41.mp3'),
-    KeyG: new Audio('./keyboardAudios/48.mp3'),
-    KeyH: new Audio('./keyboardAudios/53.mp3'),
-    KeyJ: new Audio('./keyboardAudios/60.mp3')
-};
+// var allElems = document.querySelectorAll(".elem");
 
+// allElems.forEach(function(e){
+//     e.childNodes[3].addEventListener('click', function(){
+//         e.childNodes[3].innerHTML == 'Add Friend' ? (this.innerHTML = 'Remove Friend')  : (this.innerHTML='Add Friend');
+//     })
+// });
 
-document.body.addEventListener("keydown", function(e){
-    h1.innerText = e.code;
-    if(sounds[e.code]){
-        sounds[e.code].currentTime = 0;
-        sounds[e.code].play();
-    }
-})

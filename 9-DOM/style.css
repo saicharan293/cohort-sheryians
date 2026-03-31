@@ -12,21 +12,23 @@ html, body {
 body {
     background-color : black;
     color: white;
+    padding: 20px;
+}
+
+.elem{
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 20px;
+    justify-content: space-evenly;
+    background-color: #333;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
-main{
-    height: 100%;
-    width: 100%;
-    background-color: #333;
-}
-
-h1{
-    font-size: 6rem;
-    background-color: #333;
-    padding: 20px 40px;
-    border-radius: 15px;
-    font-family: monospace;
+button{
+    background-color: royalblue;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
 }
