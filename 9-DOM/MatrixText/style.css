@@ -12,7 +12,7 @@ html,body
 }
 
 body{
-    background-color: black;
+    background: radial-gradient(circle, #000000, #050505, #0a0a0a);
     color: white;
     display: flex;
     justify-content: center;
@@ -22,4 +22,9 @@ body{
 p{
     color: rgb(70, 219, 70);
     font-size: 2rem;
+    text-shadow: 0 0 5px rgb(70, 219, 70),
+                 0 0 10px rgb(70, 219, 70),
+                 0 0 20px rgb(70, 219, 70),
+                 ;
+    transition: all .2s ease;
 }
