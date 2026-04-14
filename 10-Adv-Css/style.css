@@ -16,32 +16,27 @@ body {
     align-items: center;
 }
 
+/* For creating custom CSS property */
+@property --bgColor{
+    syntax: "<color>";
+    initial-value: rgb(42, 124, 72);
+    inherits: false;
+}
+
+@keyframes animateBgColor{
+    from{
+        --bgColor: red;
+    }
+
+    to{
+        --bgColor: blue;
+    }
+}
+
 .box{
     height: 200px;
     width: 400px;
     /* background:  conic-gradient(from 90deg, white, black, red, yellow); */
-    /* background-color: rgb(159, 155, 155); */
-    animation: changeBg 2s infinite forwards alternate;
-    /* box-shadow: inset(for inner shadow)= x y spread-radius color; */
-    /* box-shadow: 5px 5px 2px red; */
-}
-
-/* h1{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 3rem;
-    color: white;
-    text-shadow: 5px 2px 2px red;
-} */
-
-
-@keyframes changeBg {
-    from{
-        background-color: white;
-        scale: .5;
-    }
-
-    to{
-        background-color: aqua;
-        scale: 1;
-    }
+    background-color: var(--bgColor);
+    animation: animateBgColor 2s infinite linear;
 }
