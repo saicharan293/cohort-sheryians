@@ -41,20 +41,31 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* box-shadow: 0 0 60px rgb(255, 0, 123); */
+    box-shadow: 0 0 0px rgb(255, 0, 123);
     border-radius: 15px;
     background: 
     linear-gradient(black) padding-box,
     conic-gradient(from var(--rotate),black, rgb(255, 0, 123), black) border-box
     ;
 
-    border: 5px solid rgba(255, 255, 255, 0);
+    border: 0px solid rgba(255, 255, 255, 0);
+    text-shadow: 0 0 0 rgb(255, 0, 123);
     animation: borderAnimate 5s;
     animation-iteration-count: infinite;
-    /* margin: 10px; */
+    animation-timing-function: linear;
+    animation-play-state: paused;
+    transition: all .3s linear;
 }
 
 
 .box img{
     width: 100%;
+}
+
+.box:hover{
+    animation-play-state: running;
+    color:  rgb(255, 0, 123);
+    border-width: 5px;
+    box-shadow: 0 0 50px rgb(255, 0, 123);
+    text-shadow: 0 0 10px rgb(255, 0, 123);
 }
