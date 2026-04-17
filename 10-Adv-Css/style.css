@@ -11,15 +11,21 @@ html, body {
 
 body {
     background-color : black;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    /* gap: 10px; */
+    anchor-name: --some-anchor;
 }
 
 .box{
-    height: 200px;
-    width: 200px;
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .box:hover{
@@ -27,27 +33,32 @@ body {
 }
 
 .red{
-    background-color: rgb(121, 45, 45);
+    /* background-color: rgb(121, 45, 45); */
+    color: whitesmoke;
 }
 
 .blue{
-    background-color: rgb(29, 29, 121);
+    /* background-color: rgb(29, 29, 121); */
+    color: whitesmoke;
 }
 
 .green{
-    background-color: rgb(27, 90, 27);
+    /* background-color: rgb(27, 90, 27); */
+    color: whitesmoke;
 }
 
 .anchor{
-    background-color: whitesmoke;
+    background-color: rgb(64, 60, 60);
     border-radius: 10px;
     position: absolute;
     top: anchor(top);
     left: anchor(left);
-    height: 50px;
-    width: 60px;
+    bottom: anchor(bottom);
+    right: anchor(right);
+    pointer-events: none;
     position-anchor: --some-anchor;
     transition: all .3s linear;
+
 
     /* current background have the opposite color of its parent background */
     mix-blend-mode: difference;
