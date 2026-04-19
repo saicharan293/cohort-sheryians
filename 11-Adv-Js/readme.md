@@ -516,3 +516,103 @@ fn();
 * ❌ Returning normal function
 * ❌ Passing method as callback
 * ❌ Nested normal functions
+
+## Call Apply Bind
+
+```javascript
+
+const obj = {
+  name: "Chandan",
+  say: function () {
+    console.log(this.name);
+  }
+};
+
+const fn = obj.say;
+fn(); // ❌ this = window
+```
+
+### 👉 Problem:
+
+Function lost its owner → this became wrong
+
+### 🎯 Solution
+
+👉 We need a way to manually control this
+
+👉 That’s exactly what:
+
+* call
+* apply
+* bind
+---
+
+## 🔧 1. call()
+📌 Definition
+
+👉 Calls a function immediately and sets this
+
+#### 🧪 Example
+```javascript
+const obj = { name: "Chandan" };
+
+function say(age) {
+  console.log(this.name, age);
+}
+
+say.call(obj, 25);
+// Chandan 25
+```
+
+#### Note: 
+Normal function has this value as window, to attach an object to it, we use call(object, --arg1)
+
+“Hey function, run now, and treat obj as your owner”.
+---
+
+## 🔧 2. apply()
+
+👉 Same as call, but arguments are passed as array
+
+```javascript
+fn.apply(thisArg, [arg1, arg2])
+```
+
+### 🧪 Example
+
+```javascript
+say.apply(obj, [25]); //Chandan 25
+```
+---
+### 🧠 Difference from call
+| Method | Arguments       |
+| ------ | --------------- |
+| call   | comma separated |
+| apply  | array           |
+
+## 🔧 3. bind()
+
+### 📌 Definition
+
+* 👉 Does NOT call immediately
+* 👉 Returns a new function with fixed **this**
+
+### ✅ Syntax
+```javascript
+const newFn = fn.bind(thisArg);
+newFn();
+```
+
+### 🧪 Example
+```javascript
+const boundFn = say.bind(obj);
+boundFn(25); //Chandan 25
+```
+
+🔥 Key Differences
+
+| Feature              | call   | apply | bind         |
+| -------------------- | ------ | ----- | ------------ |
+| Executes immediately | ✅      | ✅     | ❌            |
+| Returns function     | ❌      | ❌     | ✅            |
+| Arguments            | normal | array | normal later |
