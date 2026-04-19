@@ -274,3 +274,245 @@ console.log(h2.hobbies); // 😱 ["cricket"]
 * Array is shared in prototype
 * Both objects use same reference
 ---
+
+# **This** keyword
+
+👉 **`this` depends on HOW a function is called, not where it is written**
+
+---
+
+## 🌍 1. Global Scope
+
+```js
+console.log(this);
+```
+Output: 👉 Browser → window
+## 2. Normal Function (ES5)
+
+```js
+function test() {
+  console.log(this);
+}
+
+test();
+// Output : window
+```
+👉 this = window (called without owner)
+
+```js
+const obj = {
+  name: "Chandan",
+  say: function () {
+    console.log(this.name);
+  }
+};
+
+obj.say();
+```
+
+👉 this = obj (obj is the owner for method)
+
+## ❗ 4. Function Detached from Object
+
+```js
+const obj = {
+  name: "Chandan",
+  say: function () {
+    console.log(this.name);
+  }
+};
+
+const fn = obj.say;
+fn();
+// window
+```
+
+👉 this = window (context lost)
+
+## 🪶 5. Arrow Function (ES6)
+```js
+const obj = {
+  name: "Chandan",
+  say: () => {
+    console.log(this.name);
+  }
+};
+
+obj.say();
+```
+* 👉 this = window
+* 👉 Arrow uses creation scope, not caller
+
+## 🔁 6. Function Inside Method
+```js
+const obj = {
+  name: "Chandan",
+  outer: function () {
+    function inner() {
+      console.log(this.name);
+    }
+    inner();
+  }
+};
+
+obj.outer();
+```
+
+* 👉 this = window
+* 👉 Inner function loses context
+
+## ⚡ 7. Arrow Inside Method
+
+```js
+const obj = {
+  name: "Chandan",
+  outer: function () {
+    const inner = () => {
+      console.log(this.name);
+    };
+    inner();
+  }
+};
+
+obj.outer();
+```
+* 👉 this = obj
+* 👉 Arrow copies parent this
+
+## ⏱️ 8. setTimeout Case
+```js
+const obj = {
+  name: "Chandan",
+  say: function () {
+    setTimeout(function () {
+      console.log(this.name);
+    }, 0);
+  }
+};
+
+obj.say();
+```
+* 👉 this = window
+* 👉 Callback called as normal function
+
+### ✅ Fix
+```js
+setTimeout(() => {
+  console.log(this.name);
+});
+```
+👉 this = obj
+
+## 🔄 9. Function Returning Function
+
+```js
+const obj = {
+  name: "Chandan",
+  outer: function () {
+    return function () {
+      console.log(this.name);
+    };
+  }
+};
+
+obj.outer()();
+```
+* 👉 this = window
+* 👉 Returned function loses context
+
+## ⚡ 10. Function Returning Arrow
+```js
+const obj = {
+  name: "Chandan",
+  outer: function () {
+    return () => {
+      console.log(this.name);
+    };
+  }
+};
+obj.outer()();
+```
+
+* 👉 this = obj
+* 👉 Arrow locks parent this
+
+## ❌ 11. Arrow Returning Arrow
+
+```js
+const obj = {
+  name: "Chandan",
+  outer: () => {
+    return () => {
+      console.log(this.name);
+    };
+  }
+};
+
+obj.outer()();
+```
+👉 this = window
+
+👉 Both arrows use global this
+
+## 📦 12. Method from Returned Object
+```js
+const obj = {
+  outer: function () {
+    return {
+      name: "Inner",
+      say: function () {
+        console.log(this.name);
+      }
+    };
+  }
+};
+
+obj.outer().say();
+```
+👉 this = returned object
+
+### why?
+```js
+obj.outer()
+```
+returns entire object, so this = obj, next 
+👉 Let’s store it:
+
+```js
+const result = obj.outer();
+```
+
+Now:
+
+```js
+result = {
+  name: "Inner",
+  say: function () {...}
+}
+```
+
+```js
+result.say();
+```
+👉 Who is calling say()?, 
+
+result object (caller)
+
+this = obj
+
+#### ✅ Final Output
+**Inner**
+
+
+## ❗ 13. Detached Returned Method
+```js
+const fn = obj.outer().say;
+fn();
+```
+👉 this = window
+
+## 🚨 Common Pitfalls
+* ❌ Arrow as object method
+* ❌ Returning normal function
+* ❌ Passing method as callback
+* ❌ Nested normal functions
