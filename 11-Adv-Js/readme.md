@@ -616,3 +616,100 @@ boundFn(25); //Chandan 25
 | Executes immediately | ✅      | ✅     | ❌            |
 | Returns function     | ❌      | ❌     | ✅            |
 | Arguments            | normal | array | normal later |
+
+
+## Class Expression
+
+“Class must be declared before you use it — no exceptions”
+
+```javascript
+let Animal = class {
+    constructor(){
+        this.name = "dog";
+        this.breed = "Husky";
+    }
+}
+
+let animal1 = new Animal();
+```
+### 🎯 Difference in ONE LINE
+👉
+* var → usable before (but undefined)
+* class → NOT usable before (error)
+
+# 🧠 JavaScript Hoisting (with Classes)
+
+---
+
+## 🔑 What is Hoisting?
+
+👉 JavaScript moves declarations to the top before execution
+
+BUT…
+
+👉 Not all declarations behave the same way
+
+---
+
+## 🌍 Execution Phases
+
+1. **Creation Phase (Hoisting)**
+   - JS scans code
+   - Registers variables, functions, classes
+
+2. **Execution Phase**
+   - Runs code line by line
+
+---
+
+## 🟡 `var` Hoisting
+
+```js
+console.log(x); // undefined
+var x = 10;
+```
+
+## 🔵 Class Hoisting
+
+```javascript
+const a = new Animal(); // ❌ Error
+class Animal {}
+// ReferenceError: Cannot access 'Animal' before initialization
+```
+
+👉 Behavior:
+
+* Hoisted but NOT initialized
+* Same as let / const
+* Exists in TDZ
+
+### 🔁 Class Expression with let
+
+```js
+let Animal = class {};
+const a = new Animal(); // ReferenceError
+```
+* 👉 Same behavior as class declaration
+* 👉 TDZ applies
+
+### 🔁 Class Expression with var
+```js
+var Animal = class {};
+const a = new Animal(); // TypeError: Animal is not a constructor
+```
+
+👉 Hoisted as:
+```js
+var Animal = undefined;
+```
+
+### 🧠 Error Comparison Table
+
+| Scenario                          | Error Type     | Reason            |
+| --------------------------------- | -------------- | ----------------- |
+| Access `let` before declaration   | ReferenceError | TDZ               |
+| Access `const` before declaration | ReferenceError | TDZ               |
+| Access `class` before declaration | ReferenceError | TDZ               |
+| Use `var` before declaration      | No error       | undefined         |
+| `new undefined()`                 | TypeError      | not a constructor |
+---
