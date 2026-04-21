@@ -713,3 +713,287 @@ var Animal = undefined;
 | Use `var` before declaration      | No error       | undefined         |
 | `new undefined()`                 | TypeError      | not a constructor |
 ---
+
+## Inheritance in **JavaScript**
+
+> Inheritance = Objects reusing properties/methods of other objects via links (not copying).
+
+* If an object doesn’t have something → it looks up the chain
+* This chain is called the prototype chain
+
+
+### 🧩 Key Concepts
+### 1. __ proto __
+* Actual hidden link between objects
+* Points to another object
+
+```js
+dog.__proto__ = animal;
+```
+
+
+### 2. prototype
+> Property of constructor functions / classes
+> Used to define shared methods
+```js
+function User() {}
+User.prototype.sayHi = function() {};
+```
+
+### Object Creation
+```js
+function User(name) {
+  this.name = name;
+}
+
+const u1 = new User("A");
+```
+__Internally...__
+```js
+u1.__proto__ === User.prototype
+```
+
+### 🔍 Property Lookup
+
+When accessing:
+```js
+u1.sayHi();
+```
+JS does:
+
+1. Check u1 → ❌
+2. Check User.prototype → ✅
+3. Execute method
+
+
+```javascript
+class Animal {
+  eat() {
+    console.log("Eating...");
+  }
+}
+
+class Dog extends Animal {
+  bark() {
+    console.log("Barking...");
+  }
+}
+```
+
+### 🔗 What does extends do?
+
+#### This line:
+
+```js
+class Dog extends Animal
+```
+#### 👉 secretly creates this link:
+
+```js
+Dog.prototype.__proto__ === Animal.prototype
+```
+
+### 🔁 Method Lookup Chain
+```js
+d → Dog.prototype → Animal.prototype → Object.prototype
+```
+
+### 🧪 So this works:
+```js
+const d = new Dog();
+
+d.bark(); // from Dog
+d.eat();  // from Animal
+```
+
+### 🔥 Method Overriding
+```js
+class B extends A {
+  say() {
+    console.log("B");
+  }
+}
+```
+
+Rule:
+> JS stops at the first match in the chain
+
+## JavaScript `super`
+
+## Core idea
+
+`super` is a way to access the parent’s constructor or methods.
+
+It is used inside a child class to:
+
+- Call the parent constructor.
+- Call parent methods.
+
+## Where `super` is used
+
+| Context | Purpose |
+|---|---|
+| Constructor | Call parent constructor |
+| Method | Call parent method |
+
+## 1. `super()` in constructor
+
+### Why it exists
+
+When you use `extends`, the child class depends on the parent.
+
+So JavaScript requires this rule:
+
+> Before using `this`, call the parent constructor.
+
+### Example
+
+```js
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name); // calls Animal constructor
+    this.breed = breed;
+  }
+}
+
+const d = new Dog("Tommy", "Labrador");
+console.log(d);
+```
+
+### 🔍 What happens internally
+```js
+super(name)
+```
+👉 is basically:
+
+“Run Animal constructor with this”
+
+⚠️ Important Rule
+
+❗ You MUST call super() before using this
+
+### ❌ Wrong
+```js
+class Dog extends Animal {
+  constructor(name) {
+    this.name = name; // ❌ Error
+  }
+}
+```
+### ✅ Correct
+```js
+class Dog extends Animal {
+  constructor(name) {
+    super(name); // ✅ required
+    this.name = name;
+  }
+}
+```
+
+### ⚡ 2. `super.method()` in Methods
+---
+
+✅ Why it exists
+
+When you override a method but still want parent behavior.
+
+### 🧪 Example
+```js
+class Animal {
+  speak() {
+    console.log("Animal speaks");
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    super.speak(); // 👈 call parent method
+    console.log("Dog barks");
+  }
+}
+
+const d = new Dog();
+d.speak();
+```
+
+### ✅ Output
+```js
+Animal speaks
+Dog barks
+```
+
+🔍 What super.speak() means
+
+👉 It means:
+```js
+Animal.prototype.speak.call(this)
+```
+
+
+### ⚠️ Key Insight
+
+> super does NOT change this
+
+### 🧪 Example
+```js
+class A {
+  show() {
+    console.log(this.value);
+  }
+}
+
+class B extends A {
+  value = 20;
+
+  show() {
+    super.show();
+  }
+}
+
+const b = new B();
+b.show();
+```
+### ✅ Output
+```js
+20
+```
+
+### 🔍 Why?
+* super.show() comes from A.prototype
+* But this = b
+* So this.value = 20
+---
+
+### 🧠 4. super in Arrow Functions (Important Edge Case)
+---
+⚠️ Arrow functions don’t have their own this
+
+But they inherit this and super from surrounding scope
+
+### 🧪 Example
+```js
+class A {
+  say() {
+    console.log("A");
+  }
+}
+
+class B extends A {
+  say() {
+    const arrow = () => super.say();
+    arrow();
+  }
+}
+
+new B().say();
+```
+✅ Output
+```js
+A
+```
