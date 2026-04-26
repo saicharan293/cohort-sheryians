@@ -210,3 +210,20 @@ async function loadUserData (){
 }
 
 // loadUserData();
+
+// promise.all, to run more than one promise in parellel. but if one fails, execution ends there.
+// returns array of result.
+
+async function loadData() {
+    try {
+        let [users, posts] = await Promise.all([
+            fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()),
+            fetch("https://jsonplaceholder.typicode.com/posts").then(res => res.json())
+        ]);
+
+        console.log(users.length, posts.length);
+
+    } catch (err) {
+        console.log("Error:", err);
+    }
+}
