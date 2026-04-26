@@ -1,0 +1,54 @@
+
+:root{
+    --pri:#f8f4e1;
+    --sec:#381c0a;
+    --tri1:#feba17;
+    --tri2:#74512d;
+}
+
+@font-face{
+    font-family: aeonik;
+    font-weight: 200;
+    src: url(./fonnts.com-Aeonik-Regular.ttf);
+}
+
+@font-face {
+    font-family: aeonik;
+    font-weight: 500;
+    src: url(./fonnts.com-Aeonik-Bold.ttf);
+}
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+}
+
+html, body {
+    height : 100%;
+    width : 100%;
+}
+
+body {
+    background-color : var(--sec);
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--tri2);
+}
+
+section.allelems{
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    padding-top: 80px;
+}
