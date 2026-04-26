@@ -18,3 +18,22 @@ document.querySelector(".search").addEventListener("input",
     debouce(function(){
         console.log("chala")
     }, 400));
+
+
+// Throttle
+
+function throttle(fn, delay){
+    let last = 0;
+    return function(){
+        const now = Date.now();
+        if(now - last >= delay){
+            last = now;
+            fn();
+        }
+    }
+}
+
+
+window.addEventListener("mousemove", throttle(function(){
+    console.log("anu")
+}, 2000))
