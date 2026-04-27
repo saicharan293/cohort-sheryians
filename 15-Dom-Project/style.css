@@ -69,6 +69,8 @@ section.allElems{
     overflow: hidden;
     position: relative;
     transition: all ease .5s;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .elem img{
@@ -94,7 +96,6 @@ section.allElems{
     width: 100%;
     background-color: #381c0a;
     padding: 20px;
-    font-size: 50px;
     display: none;
     position: absolute;
 }
@@ -102,10 +103,15 @@ section.allElems{
 .back{
     position: absolute;
     right: 5%;
-    background-color: #381c0a;
+    background-color: red;
     border-radius: 12px;
     border: none;
-    padding: 12px;
-    font-size: 20px;
-    font-weight: 700;
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.back:active{
+    scale: .97;
 }
