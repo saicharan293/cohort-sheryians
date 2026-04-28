@@ -21,80 +21,128 @@ function openFeatures(){
 
 openFeatures();
 
-let form = document.querySelector(".todo-container .addTask form");
-
-let allTask = document.querySelector(".todo-container .allTask");
-let taskInput = document.querySelector(".addTask form input");
-let taskArea = document.querySelector(".addTask form textarea");
-
-let taskImp = document.querySelector(".addTask .mark input#check");
-
-// demo purpose only
-let localTasks = [
-    {
-        task: 'Mandir jao',
-        details: 'Hanuman',
-        imp: true
-    },
-    {
-        task: 'Coding shuru',
-        details: 'Cohort 2',
-        imp: true
-    },
-    {
-        task: 'Lunch kar',
-        details: 'Food',
-        imp: false
-    },
-]
-
-let currentTasks = JSON.parse(sessionStorage.getItem("tasks"))|| [];
-
-
-
-function renderTask(){
-    if(currentTasks.length === 0){
-        allTask.innerHTML=`<p class="nodata">No data added yet</p>`;
-        return;
-    }
-    var sum = '';
-
-    currentTasks.forEach(function(e, idx){
-        sum += `
-        <div class="task">
-            <h5>${e.task} <span class="${e.imp}">imp</span></h5>
-            <button id=${idx}>Mark as Completed</button>
-        </div>
-        `
-    })
-
-    allTask.innerHTML=sum;
+function TodoList(){
         
-    var completeBtns = document.querySelectorAll(".task button");
+    let form = document.querySelector(".todo-container .addTask form");
 
-    completeBtns.forEach(function(btn){
-        btn.addEventListener('click', function(){
-            currentTasks.splice(btn.id, 1);
-            renderTask();
+    let allTask = document.querySelector(".todo-container .allTask");
+    let taskInput = document.querySelector(".addTask form input");
+    let taskArea = document.querySelector(".addTask form textarea");
+
+    let taskImp = document.querySelector(".addTask .mark input#check");
+
+    // demo purpose only
+    let localTasks = [
+        {
+            task: 'Mandir jao',
+            details: 'Hanuman',
+            imp: true
+        },
+        {
+            task: 'Coding shuru',
+            details: 'Cohort 2',
+            imp: true
+        },
+        {
+            task: 'Lunch kar',
+            details: 'Food',
+            imp: false
+        },
+    ]
+
+    let currentTasks = JSON.parse(sessionStorage.getItem("tasks"))|| [];
+
+
+
+    function renderTask(){
+        if(currentTasks.length === 0){
+            allTask.innerHTML=`<p class="nodata">No data added yet</p>`;
+            return;
+        }
+        let sum = '';
+
+        currentTasks.forEach(function(e, idx){
+            sum += `
+            <div class="task">
+                <h5>${e.task} <span class="${e.imp}">imp</span></h5>
+                <button id=${idx}>Mark as Completed</button>
+            </div>
+            `
         })
-    });
 
-    sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
+        allTask.innerHTML=sum;
+            
+        let completeBtns = document.querySelectorAll(".task button");
+
+        completeBtns.forEach(function(btn){
+            btn.addEventListener('click', function(){
+                currentTasks.splice(btn.id, 1);
+                sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
+                renderTask();
+            })
+        });
+
+
+    }
+
+    renderTask();
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+        currentTasks.push({
+            task: taskInput.value, 
+            details: taskArea.value,
+            imp: taskImp.checked
+        })
+        sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
+        taskInput.value='';
+        taskArea.value='';
+        taskImp.checked = false;
+        renderTask();
+    });
+}
+
+TodoList();
+
+// -----------------------
+// Day Planner
+
+function DailyPlanner(){
+    const hours = Array.from({length: 18},(_, idx)=>`${6+idx}:00 - ${7+idx}:00`);
+
+
+    const dayPlanner = document.querySelector(".day-planner");
+    let wholeDaysum='';
+
+    let dayPlannerInputs = JSON.parse(sessionStorage.getItem("dayPlanData")) || {};
+    hours.forEach(function(elem,idx){
+        let saved = dayPlannerInputs[idx]||'';
+        wholeDaysum += `
+            <div class="day-planner-time">
+                <p>${elem}</p>
+                <input id="${idx}" type="text" placeholder="..." value="${saved}">
+            </div>
+        `
+    });
+    dayPlanner.innerHTML=wholeDaysum;
+
+
+    let inputs = dayPlanner.querySelectorAll("input");
+
+    // inputs.forEach(function(elem){
+    //     elem.addEventListener("input", function(){
+    //         // console.log(elem.value)
+    //         dayPlannerInputs[elem.id] = elem.value;
+    //         sessionStorage.setItem("dayPlanData", JSON.stringify(dayPlannerInputs))
+    //     })
+    // })
+
+    dayPlanner.addEventListener("input", function(e){
+        if(e.target.tagName == "INPUT"){
+            dayPlannerInputs[e.target.id] = e.target.value;
+            sessionStorage.setItem("dayPlanData", JSON.stringify(dayPlannerInputs))
+        }
+    })
 
 }
 
-renderTask();
-
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    currentTasks.push({
-        task: taskInput.value, 
-        details: taskArea.value,
-        imp: taskImp.checked
-    })
-    sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
-    taskInput.value='';
-    taskArea.value='';
-    taskImp.checked = false;
-    renderTask();
-});
+DailyPlanner();
