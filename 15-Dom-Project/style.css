@@ -96,9 +96,19 @@ section.allElems{
     height: 100%;
     width: 100%;
     background-color: #381c0a;
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 20px;
-    display: none;
-    position: absolute;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: transform .5s ease, opacity .5s ease;
+}
+
+.fullElem.active{
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .back{
@@ -265,4 +275,15 @@ section.allElems{
 
 .mark label{
     font-size: 1.2rem;
+}
+
+.nodata{
+    padding: 10px 15px;
+    background: var(--pri);
+    font-size: 2rem;
+    text-transform: capitalize;
+    opacity: .5;
+    width: 100%;
+    color: var(--sec);
+    text-align: center;
 }

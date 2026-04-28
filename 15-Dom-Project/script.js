@@ -6,14 +6,15 @@ function openFeatures(){
 
     allElems.forEach(function(elem){
         elem.addEventListener("click", function(){
-            allFullElems[elem.id].style.display = 'block';
+            allFullElems.forEach(el => el.classList.remove("active"));
+            allFullElems[elem.id].classList.add("active");
         })
     })
 
     allBackButtons.forEach(function(back) {
         back.addEventListener("click", function(){
             console.log(back.id);
-            allFullElems[back.id].style.display = 'none';
+            allFullElems[back.id].classList.remove("active");
         })
     });
 }
@@ -28,7 +29,8 @@ let taskArea = document.querySelector(".addTask form textarea");
 
 let taskImp = document.querySelector(".addTask .mark input#check");
 
-let currenTasks = [
+// demo purpose only
+let localTasks = [
     {
         task: 'Mandir jao',
         details: 'Hanuman',
@@ -46,45 +48,51 @@ let currenTasks = [
     },
 ]
 
+let currentTasks = JSON.parse(sessionStorage.getItem("tasks"))|| [];
+
 
 
 function renderTask(){
+    if(currentTasks.length === 0){
+        allTask.innerHTML=`<p class="nodata">No data added yet</p>`;
+        return;
+    }
     var sum = '';
-    currenTasks.forEach(function(e){
+
+    currentTasks.forEach(function(e, idx){
         sum += `
         <div class="task">
             <h5>${e.task} <span class="${e.imp}">imp</span></h5>
-            <button>Mark as Completed</button>
+            <button id=${idx}>Mark as Completed</button>
         </div>
         `
     })
 
     allTask.innerHTML=sum;
+        
+    var completeBtns = document.querySelectorAll(".task button");
+
+    completeBtns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+            currentTasks.splice(btn.id, 1);
+            renderTask();
+        })
+    });
+
+    sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
+
 }
 
 renderTask();
 
-// form.addEventListener("submit", function(e){
-//     e.preventDefault();
-//     let task = document.createElement("div");
-//     task.className="task";
-//     let button = document.createElement("button");
-//     button.innerHTML="Mark as Completed"
-//     let h5 = document.createElement("h5");
-//     h5.innerText=taskInput.value;
-//     task.append(h5, button);
-//     allTask.appendChild(task);
-//     console.log(taskImp.checked);  
-// })
-
-
 form.addEventListener("submit", function(e){
     e.preventDefault();
-    currenTasks.push({
+    currentTasks.push({
         task: taskInput.value, 
         details: taskArea.value,
         imp: taskImp.checked
     })
+    sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
     taskInput.value='';
     taskArea.value='';
     taskImp.checked = false;
