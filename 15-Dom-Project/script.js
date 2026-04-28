@@ -53,6 +53,9 @@ function TodoList(){
     let currentTasks = JSON.parse(sessionStorage.getItem("tasks"))|| [];
 
 
+    function save(){
+        sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
+    }
 
     function renderTask(){
         if(currentTasks.length === 0){
@@ -71,21 +74,20 @@ function TodoList(){
         })
 
         allTask.innerHTML=sum;
-            
-        let completeBtns = document.querySelectorAll(".task button");
-
-        completeBtns.forEach(function(btn){
-            btn.addEventListener('click', function(){
-                currentTasks.splice(btn.id, 1);
-                sessionStorage.setItem("tasks", JSON.stringify(currentTasks));
-                renderTask();
-            })
-        });
-
 
     }
 
     renderTask();
+
+    allTask.addEventListener("click", function(e){
+        if(e.target.tagName == "BUTTON"){
+            const index = e.target.id;
+            currentTasks.splice(index, 1);
+            save();
+            renderTask();
+        }
+    });
+
     form.addEventListener("submit", function(e){
         e.preventDefault();
         currentTasks.push({
