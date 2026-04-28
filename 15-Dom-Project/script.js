@@ -148,3 +148,29 @@ function DailyPlanner(){
 }
 
 DailyPlanner();
+
+let quoteEle = document.querySelector(".moti h3");
+let author = document.querySelector(".author h4");
+
+async function MotiQuote(){
+    try {
+        quoteEle.textContent = "Loading quote...";
+        author.textContent = "...";
+
+        let response = await fetch("https://dummyjson.com/quotes/random");
+        if(!response.ok){
+            throw new Error("API failed");
+        }
+        let data = await response.json();
+        console.log(data);
+        quoteEle.textContent = data.quote;
+        author.textContent = data.author;
+    } catch (error) {
+        console.error(error);
+        quoteEle.textContent = "Failed to load quote 😢";
+        author.textContent = "";
+    }
+    
+}
+
+MotiQuote();
