@@ -227,3 +227,37 @@ function resetTimer(){
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", pauseTimer);
 resetBtn.addEventListener("click", resetTimer)
+
+// Weather api 
+var data = null;
+let apiKey = null;
+
+let humidityEle = document.querySelector(".header2");
+async function WeatherApiCall(city){
+    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+    data = await response.json();
+    console.log(data);
+    humidityEle.querySelector(".hum").innerHTML=`Humidity: ${data.main.humidity}%`;
+    humidityEle.querySelector(".wind").innerHTML=`Wind: ${data.wind.speed} mps`;
+    humidityEle.querySelector(".pressure").innerHTML=`Pressure: ${data.main.pressure} atm`;
+    humidityEle.querySelector(".clouds").innerHTML=`${data.weather[0].main}`;
+}
+
+WeatherApiCall("Bangalore");
+var timing = document.querySelector(".header1 h4");
+
+var date = null;
+var days = ['Sunday', 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+function timeDate(){
+    date = new Date();
+    var day = days[date.getDay()];
+    var hours = String(date.getHours()).padStart(2,0);
+    var minutes = String(date.getMinutes()).padStart(2, 0);
+    timing.innerHTML=`${day}, ${hours}:${minutes}`;
+}
+
+timeDate()
+
+
+
