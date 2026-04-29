@@ -173,4 +173,32 @@ async function MotiQuote(){
     
 }
 
-MotiQuote();
+// MotiQuote();
+
+
+// Pomodoro timer
+
+let totalSeconds = 25*60;
+let timer = document.querySelector(".pomo-timer h1");
+var startBtn = document.querySelector(".pomo-timer .start-timer");
+var pauseBtn = document.querySelector(".pomo-timer .puase-timer");
+var resetBtn = document.querySelector(".pomo-timer .reset-timer");
+
+function updateTimer(){
+    let minutes = Math.floor(totalSeconds / 60) ;
+    let seconds = totalSeconds % 60;
+
+    timer.innerHTML = `${minutes}:${seconds}`;
+}
+
+function startTimer(){
+    setInterval(() => {
+        totalSeconds--
+        updateTimer();
+    }, 800);
+}
+
+startBtn.addEventListener("click", startTimer);
+// Timer()
+
+// updateTimer()
