@@ -181,24 +181,49 @@ async function MotiQuote(){
 let totalSeconds = 25*60;
 let timer = document.querySelector(".pomo-timer h1");
 var startBtn = document.querySelector(".pomo-timer .start-timer");
-var pauseBtn = document.querySelector(".pomo-timer .puase-timer");
+var pauseBtn = document.querySelector(".pomo-timer .pause-timer");
 var resetBtn = document.querySelector(".pomo-timer .reset-timer");
+let timerInterval = null
 
 function updateTimer(){
     let minutes = Math.floor(totalSeconds / 60) ;
     let seconds = totalSeconds % 60;
 
-    timer.innerHTML = `${minutes}:${seconds}`;
+    timer.innerHTML = `${String(minutes).padStart('2','0')}:${String(seconds).padStart('2','0')}`;
 }
 
+let workStatus = true;
+let breakEle = document.querySelector(".pomo-timer .break");
+
 function startTimer(){
-    setInterval(() => {
+    clearInterval(timerInterval);
+    if(totalSeconds<=0){
+        totalSeconds = workStatus ? 25*60 : 5*60;
+    }
+    timerInterval = setInterval(() => {
+        if(totalSeconds<=0){
+            clearInterval(timerInterval);
+            workStatus = !workStatus;
+            totalSeconds = workStatus ? 25*60 : 5*60;
+            breakEle.textContent = workStatus ?"Work Time": "Break Time";
+            updateTimer();
+            return;
+        }
         totalSeconds--
         updateTimer();
-    }, 800);
+    }, 1000);
+}
+
+function pauseTimer(){
+    clearInterval(timerInterval);
+}
+
+function resetTimer(){
+    clearInterval(timerInterval);
+    totalSeconds = 25*60;
+    updateTimer();
 }
 
 startBtn.addEventListener("click", startTimer);
-// Timer()
-
-// updateTimer()
+pauseBtn.addEventListener("click", pauseTimer);
+resetBtn.addEventListener("click", resetTimer)
