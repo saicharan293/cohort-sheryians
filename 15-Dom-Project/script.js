@@ -241,6 +241,8 @@ async function WeatherApiCall(city){
     humidityEle.querySelector(".wind").innerHTML=`Wind: ${data.wind.speed} mps`;
     humidityEle.querySelector(".pressure").innerHTML=`Pressure: ${data.main.pressure} atm`;
     humidityEle.querySelector(".clouds").innerHTML=`${data.weather[0].main}`;
+    let temp =(data.main.temp - 273.15).toFixed(2);
+    humidityEle.querySelector("h2").innerHTML=`${temp}°C`;
 }
 
 WeatherApiCall("Bangalore");
@@ -259,5 +261,33 @@ function timeDate(){
 
 timeDate()
 
+function ChangeTheme(){
 
+    var rootEle = document.documentElement;
 
+    var theme = document.querySelector(".theme");
+    var flag = 0;
+    
+    theme.addEventListener("click", function(){
+        if(flag==0){
+            rootEle.style.setProperty('--pri','#dfd0b8')
+            rootEle.style.setProperty('--sec','#222831')
+            rootEle.style.setProperty('--tri1','#948979')
+            rootEle.style.setProperty('--tri2','#393e46')
+        } else if(flag == 1){
+            rootEle.style.setProperty('--pri','#000')
+            rootEle.style.setProperty('--sec','#1dcd9f');
+            rootEle.style.setProperty('--tri1','#222')
+            rootEle.style.setProperty('--tri2','#169976')
+            flag = 2
+        } else if (flag == 2){
+            rootEle.style.setProperty('--pri','#f8f4e1')
+            rootEle.style.setProperty('--sec','#381c0a')
+            rootEle.style.setProperty('--tri1','#feba17')
+            rootEle.style.setProperty('--tri2','#74512d')
+            flag = 3
+        }
+    })
+}
+
+ChangeTheme();
