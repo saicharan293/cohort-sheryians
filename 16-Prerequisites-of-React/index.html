@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spread & Rest Operators Guide</title>
+
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(90deg, #6366f1, #06b6d4);
+    padding: 30px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+    color: white;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .card {
+    background: #1e293b;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+
+  h2 {
+    color: #38bdf8;
+  }
+
+  code {
+    background: #020617;
+    padding: 3px 6px;
+    border-radius: 6px;
+    color: #22c55e;
+  }
+
+  pre {
+    background: #020617;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+  }
+
+  .highlight {
+    color: #facc15;
+  }
+
+</style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>🚀 Spread & Rest Operators in JavaScript</h1>
+        <p>Deep Dive with Examples</p>
+    </header>
+
+    <div class="container">
+
+    <!-- Intro -->
+
+    <div class="card">
+        <h2>📌 What is <code>...</code> ?</h2>
+        <p>
+            The <span class="highlight">three dots (...)</span> in JavaScript are used for two different purposes:
+        </p>
+        <ul>
+            <li><b>Spread Operator</b> → Expands elements</li>
+            <li><b>Rest Operator</b> → Collects elements</li>
+        </ul>
+    </div>
+
+    <!-- Spread -->
+
+    <div class="card">
+<h2>🔹 Spread Operator</h2>
+<p>Spread is used to <b>expand</b> arrays or objects.</p>
+
+
+<h3>Example: Array Merge</h3>
+<pre>
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5];
+
+const result = [...arr1, ...arr2];
+console.log(result); // [1,2,3,4,5] 
+</pre>
+
+<h3>Example: Copy Array</h3>
+<pre>
+const original = [1, 2, 3];
+const copy = [...original];
+
+copy.push(4);
+
+console.log(original); // [1,2,3]
+console.log(copy);     // [1,2,3,4] 
+</pre>
+
+<h3>Example: Object Update</h3>
+<pre>
+const user = { name: "Chandan", age: 25 };
+
+const updated = { ...user, city: "Bangalore" };
+
+console.log(updated); </pre>
+
+    </div>
+
+    <!-- Rest -->
+
+    <div class="card">
+<h2>🔹 Rest Operator</h2>
+<p>Rest is used to <b>collect multiple values</b> into one variable.</p>
+
+<h3>Example: Function Parameters</h3>
+<pre>
+function sum(...numbers) {
+    return numbers.reduce((a, b) => a + b, 0);
+}
+
+console.log(sum(10, 20, 30)); // 60 
+</pre>
+
+<h3>Example: Array Destructuring</h3>
+<pre>
+const nums = [1,2,3,4];
+
+const [first, ...rest] = nums;
+
+console.log(first); // 1
+console.log(rest);  // [2,3,4] 
+</pre>
+
+<h3>Example: Object Destructuring</h3>
+<pre>
+
+const person = {
+    name: "Chandan",
+    age: 25,
+    city: "Bangalore"
+};
+
+const { name, ...others } = person;
+
+console.log(name);   // Chandan
+console.log(others); // { age: 25, city: "Bangalore" } 
+</pre>
+
+    </div>
+
+    <!-- Key Difference -->
+
+    <div class="card">
+<h2>⚡ Key Difference</h2>
+<pre>
+Spread  → Expands values (outward)
+Rest    → Collects values (inward) 
+</pre>
+    </div>
+
+    <!-- Real Use -->
+
+    <div class="card">
+<h2>🔥 Real-World Usage</h2>
+
+
+<h3>Immutable Update</h3>
+<pre>
+const state = { count: 1 };
+const newState = { ...state, count: 2 }; 
+</pre>
+
+
+<h3>Function Flexibility</h3>
+<pre>
+function logAll(...args) {
+    console.log(args);
+}
+
+logAll(1,2,3,4); 
+</pre>
+
+    </div>
+
+    </div>
+
+</body>
+</html>
