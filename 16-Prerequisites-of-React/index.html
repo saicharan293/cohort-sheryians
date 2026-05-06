@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>JS Modules Demo</title>
-  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React with CDN</title>
   <style>
-    body {
-        font-family: Arial;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    #output {
-        margin-top: 20px;
-        font-size: 20px;
-        color: green;
+    body{
+      background-color: black;
+      color: white;
     }
   </style>
 </head>
 <body>
 
-  <h1>JS Modules Demo</h1>
-  <div id="output"></div>
-
-  <script type="module" src="script.js"></script>
+  <div id="root"></div>
+  
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
