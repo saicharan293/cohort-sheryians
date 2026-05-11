@@ -12,5 +12,14 @@ html, body {
 body {
   background-color : black;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.box{
+  height: 300px;
+  width: 500px;
+  background-color: aqua;
+  border-radius: 20px;
+}
