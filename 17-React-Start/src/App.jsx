@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from './components/Nav'
 import Section from './components/Section'
+import Section2 from './components/Section2'
 
 //task image
 
@@ -11,6 +12,7 @@ const App = () => {
     <div className='box'>
       <Nav />
       <Section />
+      <Section2 />
     </div>
   )
 }
