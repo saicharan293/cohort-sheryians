@@ -12,6 +12,7 @@ html, body {
 body {
   background-color : black;
   color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .nav{
@@ -75,4 +76,76 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 20px;
+  padding-block: 5rem;
+  position: relative;
+}
+
+.ce h3{
+  text-transform: capitalize;
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.ce p{
+  text-transform: capitalize;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.ce .foot{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  padding: 1.8rem 2.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left p{
+  text-align: left;
+}
+
+.left{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.foot .left .images{
+  display: flex;
+  background-color: rgba(255, 251, 251, 0.299);
+  padding: .5rem .8rem;
+  align-items: center;
+  border-radius: 40px;
+
+}
+
+.foot .left .images .img-div{
+  border-radius: 50px;
+  background-color: whitesmoke;
+  height: 35px;
+  width: 35px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot .left .images .img-div img{
+  height: 100%;
+  width: 100%;
+  /* border-radius: 50px; */
+  text-align: center;
+  object-fit: contain;
+
+}
+
+.right{
+  display: flex;
+  gap: 1rem;
+  padding: .5rem;
+}
+
+.right a{
+  color: rgba(255, 255, 255, 0.724);
 }
