@@ -1,30 +1,17 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import Men from './components/Men'
-import Women from './components/Women'
 
 const App = () => {
-  const user1 = {
-    name: 'Shiva',
-    age: 30,
-    gender: 'male'
-  }
-
-  const user2 = {
-    name: 'Parvati',
-    age: 20,
-    gender: 'female'
-  }
-
-  const user3 = {
-    name: 'Nandi',
-    age: 10,
-    gender: 'male'
+  const btnClick = () =>{
+    console.log("abcd");
   }
 
   return (
     <div className='bg-black text-white p-5 h-screen'>
-      {user2.gender == 'male' ? (user3.age > 10 ? <Men /> : <Women />)  : <Women />}
+      <button 
+        onClick={btnClick}
+        className='active:scale-95 bg-emerald-900 px-4 py-2 rounded'>
+          Click to Download
+      </button>
     </div>
   )
 }
