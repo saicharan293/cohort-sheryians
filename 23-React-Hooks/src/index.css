@@ -32,3 +32,10 @@ button{
 button:active{
    scale : .9;
 }
+
+.parent{
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
