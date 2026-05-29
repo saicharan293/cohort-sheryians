@@ -5,8 +5,8 @@ const App = () => {
 
   const [num, setNum] = useState(0);
   function ChangeUser(){
-    let rd = Math.floor(Math.random()*arr.length);
-    setNum(rd)
+    if(num < arr.length-1) setNum(num+1);
+    else setNum(0)
   }
   return (
     <div>
