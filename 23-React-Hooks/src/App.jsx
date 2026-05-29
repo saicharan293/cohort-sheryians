@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
+  const [gender, setGender] = useState('Male')
+
+  function UpdateGender(){
+    if(gender == 'Male'){
+      setGender('Female')
+    } else {
+      setGender('Male')
+    }
+  }
   return (
     <div className='parent'>
-      <div>
-        <input type="radio" name='gender' id='male' />
-        <label htmlFor="male"> Male</label>
-      </div>
-      <div>
-        <input type='radio' name='gender' id='female' />
-        <label htmlFor="female"> FeMale</label>
-      </div>
+      <h1>{gender}</h1>
+      <button onClick={()=>{
+        gender == 'Male' ? setGender('FeMale') : setGender('Male')
+      }}>
+        Change Gender
+      </button>
     </div>
   )
 }
