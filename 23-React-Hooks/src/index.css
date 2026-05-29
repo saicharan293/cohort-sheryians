@@ -18,25 +18,16 @@ body {
     text-align: center;
 }
 
-.box{
-    height: 200px;
-    width: 200px;
-    background-color: lightseagreen;
-    margin-bottom: 10px;
-    font-size: 50px;
-    border-radius: 10px;
-}
-
 button{
-    padding: 10px 12px;
-    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 2px;
+    background-color: brown;
+    border-radius: 5px;
     border: none;
-    transition: all .2s ease;
-    box-shadow: 0 4px 10px rgba(132, 130, 130, 0.3);
-    background-color: #2d2c2c;
     color: white;
+    transition: all ease .3s;
 }
 
 button:active{
-    transform: scale(.95);
+    transform: scale(.9);
 }
