@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Room from '../components/Room'
 
 const App = () => {
   const [gender, setGender] = useState('Male')
@@ -14,10 +15,13 @@ const App = () => {
     <div className='parent'>
       <h1>{gender}</h1>
       <button onClick={()=>{
-        gender == 'Male' ? setGender('FeMale') : setGender('Male')
+        gender == 'Male' ? setGender('Female') : setGender('Male')
       }}>
         Change Gender
       </button>
+
+      <Room user={gender}/>
+      
     </div>
   )
 }

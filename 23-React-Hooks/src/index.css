@@ -39,3 +39,27 @@ button:active{
     display: flex;
     flex-direction: column;
 }
+
+
+.room{
+    width: fit-content;
+    height: 300px;
+    width: 300px;
+    font-size: 30px;
+    font-weight: 600;
+    background: conic-gradient(violet,indigo, blue, green, yellow, orange, red, violet);
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Male{
+    background: rgb(0, 179,255);
+}
+
+.Female{
+    background: rgb(255, 57, 163);
+}
