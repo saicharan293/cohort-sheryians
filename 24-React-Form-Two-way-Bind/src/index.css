@@ -1,0 +1,58 @@
+*{
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+}
+
+html, body {
+  height : 100%;
+  width : 100%;
+}
+
+body {
+  background: conic-gradient(from 90deg, #de8c3f 0%, #0f85fa 17%, #0fcbfa 69%, #0fe1fa 87%, #0fe7fa 95%, #de8c3f 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.box{
+  height: 14rem;
+  width: 40rem;
+  background: linear-gradient(90deg, #0f23fa 0%, #0f85fa 50%, #0fe7fa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+
+button{
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: radial-gradient(circle, #de8c3f 0%, #0f85fa 50%, #0fe7fa 100%);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all ease .3s;
+  cursor: pointer;
+}
+
+button:active{
+  scale: .8;
+}
+
+input{
+  padding: 8px;
+  outline: none;
+}
