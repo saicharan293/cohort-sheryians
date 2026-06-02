@@ -1,17 +1,30 @@
 import React, { useState } from 'react'
 
 const App = () => {
-  function submitHandler(e){
-    e.preventDefault()
-    console.log('submitted');
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(username);
+    setUsername('')
     
   }
+  const [username, setUsername] = useState('');
   return (
-    <div className='box'>
+    <div>
       <form onSubmit={(e)=>{
         submitHandler(e)
       }}>
-        <input type="text" placeholder='Enter a name'/>
+        {/* here, without setusername in the onchange, 
+          we cannot touch the input. so we are taking React (setusername)
+          as the mediator for user and html, leading to two way binding */}
+        <input 
+          type='text' 
+          placeholder='Enter your name'
+          value={username}
+          onChange={(e)=>{
+            setUsername(e.target.value);
+          }}
+          />
         <button>submit</button>
       </form>
     </div>
