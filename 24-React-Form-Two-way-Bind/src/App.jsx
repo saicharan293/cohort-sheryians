@@ -5,12 +5,15 @@ const App = () => {
   const [username, setUsername] = useState('');
 
   const [allUsers, setAllUsers] = useState([]);
+  const [email, setEmail] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setAllUsers([...allUsers, username]);
+    let user = {username, email}
+    setAllUsers([...allUsers, user]);
     
-    setUsername('')
+    setUsername('');
+    setEmail('');
     
   }
   return (
@@ -29,10 +32,21 @@ const App = () => {
             setUsername(e.target.value);
           }}
           />
+
+        <input 
+          type='email' 
+          placeholder='Enter your email'
+          value={email}
+          onChange={(e)=>{
+            setEmail(e.target.value);
+          }}
+          />
         <button>submit</button>
       </form>
       {allUsers.map((ele, idx)=>{
-        return <h1 key={idx}>{ele}</h1>
+        return <div key={idx}>
+          <h1>{ele.username}-{ele.email}</h1>
+        </div>
       })}
     </div>
   )
