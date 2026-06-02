@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 
 const App = () => {
 
+  const [username, setUsername] = useState('');
+
+  const [allUsers, setAllUsers] = useState([]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(username);
+    setAllUsers([...allUsers, username]);
+    
     setUsername('')
     
   }
-  const [username, setUsername] = useState('');
   return (
     <div>
       <form onSubmit={(e)=>{
@@ -27,6 +31,9 @@ const App = () => {
           />
         <button>submit</button>
       </form>
+      {allUsers.map((ele, idx)=>{
+        return <h1 key={idx}>{ele}</h1>
+      })}
     </div>
   )
 }

@@ -10,7 +10,8 @@ html, body {
 }
 
 body {
-  background: conic-gradient(from 90deg, #de8c3f 0%, #0f85fa 17%, #0fcbfa 69%, #0fe1fa 87%, #0fe7fa 95%, #de8c3f 100%);
+  /* background: conic-gradient(from 90deg, #de8c3f 0%, #0f85fa 17%, #0fcbfa 69%, #0fe1fa 87%, #0fe7fa 95%, #de8c3f 100%); */
+  background-color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
