@@ -1,16 +1,24 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# local Storage
 
-Currently, two official plugins are available:
+## 1. localStorage.clear()
+- to clean local storage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 2. localStorage.setItem("key","value")
+- to add new item or overwrite existing ones
 
-## React Compiler
+## 3. localStorage.getItem("key")
+- to get any item
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 4. localStorage.removeItem("key")
+- to remove any item
 
-## Expanding the ESLint configuration
+### Note
+- data is stored in form of string and fetched as string it self.
+- to store data in form of array or object, use JSON.stringify(obj) or JSON.stringify(arr)
+- to fetch the stored data (array or object), use JSON.parse(obj) or JSON.parse(arr)
+- JSON.stringify : Array/Object -> String
+- JSON.parse : String -> Array/Object
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# sesstion Storage
+- to store data until tab close of a browser
