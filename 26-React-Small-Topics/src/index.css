@@ -12,5 +12,49 @@ html, body {
 body {
   background-color : black;
   color: white;
+  padding: 20px;
 }
 
+.card{
+  height: 400px;
+  width: 400px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.upper{
+  height: 50%;
+  width: 100%;
+}
+
+.upper img{
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.lower{
+  height: 50%;
+  width: 100%;
+  padding: 20px;
+}
+
+.lower h2{
+  font-size: 45px;
+}
+
+.lower h4{
+  font-size: 18px;
+  font-weight: 500;
+  color: #888;
+}
+
+.lower h3{
+  font-size: 30px;
+  color: black;
+  margin-top: 30px;
+  color: darkslategrey;
+}
