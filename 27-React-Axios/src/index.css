@@ -1,0 +1,39 @@
+*{
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+}
+
+html, body {
+  height : 100%;
+  width : 100%;
+}
+
+body {
+  background-color : black;
+  color: white;
+}
+
+body{
+  padding: 20px;
+}
+
+.user-card{
+  height: 250px;
+  width: 250px;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  font-size: 2rem;
+}
+
+.all-cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button{
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 20px;
+}
