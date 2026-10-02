@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const App = () => {
-  
-  const [count, setCount] = useState(0);
 
-  const [title, settitle] = useState('');
+  const [name, setName] = useState('');
+  const [num, setNum] = useState(0);
 
-  useEffect(()=>{
-    console.log("use effect when title change");
-    
-  },[title]);
+  const getData =async ()=>{
+    const response = await axios.get(' https://randomuser.me/api/');
+    setName((response.data.results[0].name.first+" "+response.data.results[0].name.last))
+  }
+
+  useEffect(function(){
+    getData()
+  },[num])
 
   return (
     <div>
-      <input placeholder='enter the input' value={title} onChange={(e)=>settitle(e.target.value)}/>
-      <h3>{count}</h3>
-      <button onClick={(e)=>setCount(count+1)}>Count</button>
+      {name}
+      <h3>{num}</h3>
+      <button onClick={e=>setNum(num+1)}>
+        Click
+      </button>
     </div>
   )
 }
