@@ -1,227 +1,66 @@
-# React Router DOM
+# React Router DOM — Beginner Friendly Notes
 
-## 📌 What is React Router?
-
-React Router is a library that allows us to create **different routes/pages in a React application**.
+React Router DOM is used to create **multiple pages/routes** in a React application without completely reloading the browser.
 
 For example:
 
 ```text
-/          → Home
-/about     → About
-/contact   → Contact
-/login     → Login
+/           → Home
+/about      → About
+/products   → Products
+/contact    → Contact
 ```
-
-React Router looks at the URL and decides **which component should be displayed**.
 
 ---
 
-# 1. Install React Router DOM
+# 1. Installation
 
-Install `react-router-dom` using:
+Install React Router DOM using npm:
 
 ```bash
 npm i react-router-dom
 ```
 
-After installing it, we can use React Router features in our application.
+After installation, we can start creating routes.
 
 ---
 
 # 2. BrowserRouter
 
-In `main.jsx`, import `BrowserRouter`:
+First, wrap the main application with `BrowserRouter`.
+
+### `main.jsx`
 
 ```jsx
 import { BrowserRouter } from "react-router-dom";
-```
+import App from "./App";
 
-Then wrap `<App />` with `<BrowserRouter>`:
-
-```jsx
 <BrowserRouter>
   <App />
 </BrowserRouter>
 ```
 
-Example `main.jsx`:
-
-```jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import { BrowserRouter } from "react-router-dom";
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
-```
-
-### What does BrowserRouter do?
+### What is `BrowserRouter`?
 
 `BrowserRouter` enables **browser-based routing** in our React application.
 
-Think of it as:
+Without it, React Router cannot properly handle routes.
+
+### Mental Model
 
 ```text
 BrowserRouter
       ↓
-"React, this application will use routing."
+Enables routing
+      ↓
+App
 ```
-
-It allows components inside `<App />` to use React Router features.
 
 ---
 
 # 3. Routes
 
-Inside `App.jsx`, we create a collection of all our routes using:
-
-```jsx
-<Routes>
-  ...
-</Routes>
-```
-
-Import it:
-
-```jsx
-import { Routes, Route } from "react-router-dom";
-```
-
-Example:
-
-```jsx
-function App() {
-  return (
-    <Routes>
-      ...
-    </Routes>
-  );
-}
-```
-
-### What is `Routes`?
-
-`<Routes>` is a **container/collection of our routes**.
-
-Think of it like:
-
-```text
-Routes
-  │
-  ├── Route
-  ├── Route
-  └── Route
-```
-
----
-
-# 4. Route
-
-Inside `<Routes>`, we create individual routes using `<Route />`.
-
-Example:
-
-```jsx
-<Route
-  path="/"
-  element={<Home />}
-/>
-```
-
-A `Route` connects:
-
-```text
-URL → Component
-```
-
-For example:
-
-```text
-/ → Home
-```
-
----
-
-# 5. `path`
-
-The `path` tells React Router:
-
-> **Which URL should this route match?**
-
-Example:
-
-```jsx
-<Route
-  path="/about"
-  element={<About />}
-/>
-```
-
-Here:
-
-```jsx
-path="/about"
-```
-
-means that this route matches:
-
-```text
-/about
-```
-
-So when the URL is:
-
-```text
-http://localhost:5173/about
-```
-
-React Router will match this route.
-
----
-
-# 6. `element`
-
-The `element` tells React Router:
-
-> **What component should be rendered when this route matches?**
-
-Example:
-
-```jsx
-<Route
-  path="/about"
-  element={<About />}
-/>
-```
-
-Here:
-
-```jsx
-element={<About />}
-```
-
-means:
-
-> Render the `About` component.
-
----
-
-# 7. Complete Routes Example
-
-Suppose we have:
-
-```text
-Home
-About
-Contact
-```
-
-We can create:
+Inside `App.jsx`, we use `Routes`.
 
 ```jsx
 import { Routes, Route } from "react-router-dom";
@@ -229,21 +68,6 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
-
-      <Route
-        path="/"
-        element={<Home />}
-      />
-
-      <Route
-        path="/about"
-        element={<About />}
-      />
-
-      <Route
-        path="/contact"
-        element={<Contact />}
-      />
 
     </Routes>
   );
@@ -252,337 +76,241 @@ function App() {
 export default App;
 ```
 
-Now React Router understands:
+### What is `Routes`?
+
+`Routes` is a **container for all our routes**.
+
+Think of it as:
 
 ```text
-URL              Component
-
-/         →      Home
-/about   →      About
-/contact →      Contact
+Routes
+ ├── Route
+ ├── Route
+ ├── Route
+ └── Route
 ```
 
 ---
 
-# 8. Easy Way to Remember `Route`
+# 4. Route
 
-A `<Route />` has two important things:
+A `Route` connects a **URL path** with a **React component**.
+
+Example:
 
 ```jsx
-<Route
-  path="/about"
-  element={<About />}
-/>
+<Route path="/" element={<Home />} />
 ```
 
-Remember:
+There are two important things here:
 
 ```text
-path    = WHERE
-element = WHAT
+path
+ ↓
+WHERE?
+
+element
+ ↓
+WHAT?
 ```
 
-So:
+### `path`
+
+Defines the URL.
 
 ```jsx
 path="/about"
 ```
 
-means:
+Means:
 
-> Where?
+```text
+http://localhost:5173/about
+```
 
-And:
+### `element`
+
+Defines which component should be displayed.
 
 ```jsx
 element={<About />}
 ```
 
-means:
-
-> What should I show?
-
-Therefore:
+So:
 
 ```jsx
-<Route
-  path="/about"
-  element={<About />}
-/>
+<Route path="/about" element={<About />} />
 ```
 
 means:
 
-> **When the URL is `/about`, show the `<About />` component.**
+> When the URL is `/about`, show the `About` component.
 
 ---
 
-# 9. Navigating Between Routes
-
-After creating routes, we need a way to move from one route to another.
-
-There are several ways to navigate.
-
-The main ones are:
-
-```text
-<Link>
-<NavLink>
-useNavigate()
-redirect()
-<a>
-```
-
-They are not exactly the same and are used in different situations.
-
----
-
-# 10. `Link`
-
-`Link` is the most common way to navigate between routes inside a React application.
-
-Import it:
+# 5. Basic Routing Example
 
 ```jsx
-import { Link } from "react-router-dom";
-```
+import { Routes, Route } from "react-router-dom";
 
-Use it:
-
-```jsx
-<Link to="/about">
-  About
-</Link>
-```
-
-When the user clicks the link, React Router changes the route without doing a normal full-page browser reload.
-
-Think:
-
-```text
-Click Link
-    ↓
-React Router
-    ↓
-URL changes
-    ↓
-Matching component renders
-```
-
-### Example Navbar
-
-```jsx
-import { Link } from "react-router-dom";
-
-function Navbar() {
+function App() {
   return (
-    <nav>
-      <Link to="/">Home</Link>
-
-      <Link to="/about">About</Link>
-
-      <Link to="/contact">Contact</Link>
-    </nav>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 }
 ```
 
----
-
-# 11. Why not use `<a>` for internal routes?
-
-You might write:
-
-```jsx
-<a href="/about">
-  About
-</a>
-```
-
-This is a normal HTML link.
-
-It works, but the browser treats it as a normal navigation.
-
-Usually, the browser will:
+Now we have:
 
 ```text
-Click <a>
-    ↓
-Navigate to /about
-    ↓
-Reload the document
-    ↓
-React starts again
+/          → Home
+/about     → About
+/contact   → Contact
 ```
 
-This can cause:
-
-* React state to be reset
-* Components to be unmounted and mounted again
-* Additional loading/network requests
-* A less smooth SPA navigation experience
-
-For internal React Router routes, prefer:
-
-```jsx
-<Link to="/about">
-  About
-</Link>
-```
-
----
-
-# 12. When should we use `<a>`?
-
-`<a>` is still useful.
-
-For example, when going to an **external website**:
-
-```jsx
-<a href="https://google.com">
-  Google
-</a>
-```
-
-You don't need React Router to navigate to another website.
-
-### Simple rule
+### Mental Model
 
 ```text
-Internal React route
-        ↓
-      <Link>
-
-External website
-        ↓
-       <a>
+URL
+ ↓
+path
+ ↓
+Route
+ ↓
+element
+ ↓
+Component
 ```
 
 ---
 
-# 13. `NavLink`
+# 6. Link
 
-`NavLink` is similar to `Link`.
+To navigate between pages inside a React application, we can use `Link`.
 
-Import it:
+```jsx
+import { Link } from "react-router-dom";
+
+<Link to="/about">About</Link>
+```
+
+When the user clicks:
+
+```text
+About
+  ↓
+/about
+  ↓
+About component
+```
+
+### Why use `Link`?
+
+`Link` allows React Router to change the page **without doing a full browser reload**.
+
+For internal React routes, prefer:
+
+```jsx
+<Link to="/about">About</Link>
+```
+
+instead of:
+
+```html
+<a href="/about">About</a>
+```
+
+---
+
+# 7. NavLink
+
+`NavLink` is similar to `Link`, but it also knows whether the current route is active.
 
 ```jsx
 import { NavLink } from "react-router-dom";
+
+<NavLink to="/about">About</NavLink>
 ```
 
-Use it:
-
-```jsx
-<NavLink to="/about">
-  About
-</NavLink>
-```
-
-The important difference is that `NavLink` knows whether the current route is **active**.
-
-This makes it very useful for:
+It is especially useful for:
 
 * Navbar
 * Sidebar
-* Dashboard menu
-* Navigation menu
+* Menu
+* Navigation links
 
----
-
-## Example of `NavLink`
+Example:
 
 ```jsx
-<NavLink
-  to="/about"
-  className={({ isActive }) =>
-    isActive ? "text-red-500" : "text-black"
-  }
->
-  About
-</NavLink>
+<NavLink to="/">Home</NavLink>
+<NavLink to="/about">About</NavLink>
+<NavLink to="/products">Products</NavLink>
 ```
 
-If the current URL is:
-
-```text
-/about
-```
-
-then:
-
-```text
-isActive = true
-```
-
-So the link can have different styling.
-
-### Simple difference
+### Link vs NavLink
 
 ```text
 Link
  ↓
 Normal navigation
 
+
 NavLink
  ↓
-Navigation + knows whether it is active
+Navigation + active route information
 ```
+
+Use `NavLink` when you want to style the **currently active page**.
 
 ---
 
-# 14. `useNavigate()`
+# 8. useNavigate()
 
-Sometimes we don't want navigation to happen because the user clicked a link.
+Sometimes we want to navigate using JavaScript instead of clicking a link.
 
-Instead, we want JavaScript to navigate after something happens.
-
-For this, React Router provides:
-
-```jsx
-useNavigate()
-```
-
-Import it:
+For this, we use `useNavigate()`.
 
 ```jsx
 import { useNavigate } from "react-router-dom";
-```
 
-Example:
-
-```jsx
 function Login() {
-
   const navigate = useNavigate();
 
-  function handleLogin() {
-
-    // login logic...
-
-    navigate("/dashboard");
-  }
-
   return (
-    <button onClick={handleLogin}>
+    <button onClick={() => navigate("/dashboard")}>
       Login
     </button>
   );
 }
 ```
 
-When login succeeds:
+When the button is clicked:
 
 ```text
-Login successful
-       ↓
+Click
+ ↓
 navigate("/dashboard")
-       ↓
-Dashboard
+ ↓
+/dashboard
 ```
 
 ### When is `useNavigate()` useful?
 
+It is useful when navigation happens after an action.
+
 For example:
+
+```text
+Login successful
+      ↓
+navigate("/dashboard")
+```
+
+or:
 
 ```text
 Form submitted
@@ -593,40 +321,16 @@ navigate("/success")
 or:
 
 ```text
-Login successful
-      ↓
-navigate("/dashboard")
-```
-
-or:
-
-```text
 Logout
-  ↓
+      ↓
 navigate("/login")
-```
-
-### Simple rule
-
-```text
-User clicks a navigation link
-        ↓
-      Link
-
-JavaScript needs to navigate
-        ↓
-   useNavigate()
 ```
 
 ---
 
-# 15. `redirect()`
+# 9. redirect()
 
-React Router also provides:
-
-```jsx
-redirect()
-```
+`redirect()` is another way to navigate, but it is mainly used with React Router's **loaders and actions**.
 
 Example:
 
@@ -636,292 +340,611 @@ import { redirect } from "react-router-dom";
 return redirect("/login");
 ```
 
-`redirect()` is generally used with React Router's **loaders/actions**.
-
-For example, you may want to redirect a user to `/login` if they are not authenticated.
-
-As a beginner, you don't need to use `redirect()` immediately.
-
-Just remember:
-
-```text
-redirect()
-    ↓
-Used mainly for router loaders/actions
-```
-
----
-
-# 16. `Link` vs `NavLink` vs `useNavigate` vs `a`
-
-| Method          | Main purpose                       |
-| --------------- | ---------------------------------- |
-| `<Link>`        | Normal internal navigation         |
-| `<NavLink>`     | Internal navigation + active route |
-| `useNavigate()` | Navigation from JavaScript         |
-| `redirect()`    | Redirect from loaders/actions      |
-| `<a>`           | Normal browser/external navigation |
-
----
-
-# 17. Which One Should I Use?
-
-### Normal navigation
-
-Use:
-
-```jsx
-<Link to="/about">
-  About
-</Link>
-```
-
-### Navbar / Sidebar
-
-Use:
-
-```jsx
-<NavLink to="/about">
-  About
-</NavLink>
-```
-
-### Navigate after an action
-
-Use:
-
-```jsx
-navigate("/dashboard");
-```
-
-with:
+For beginners, you will usually use:
 
 ```jsx
 useNavigate()
 ```
 
-### Redirect from a loader/action
+for navigation inside components.
 
-Use:
+### Simple difference
 
-```jsx
-redirect("/login");
+```text
+useNavigate()
+ ↓
+Navigation inside component
+
+
+redirect()
+ ↓
+Mostly used with loaders/actions
 ```
 
-### External website
+---
 
-Use:
+# 10. `<a>` Tag vs `<Link>`
+
+Normal HTML anchor:
+
+```html
+<a href="/about">About</a>
+```
+
+React Router:
 
 ```jsx
+<Link to="/about">About</Link>
+```
+
+For internal React routes, prefer `Link`.
+
+### Why?
+
+`<a>` uses normal browser navigation and can cause the entire page to reload.
+
+`Link` works with React Router and performs client-side navigation.
+
+---
+
+## When should I use `<a>`?
+
+`<a>` is perfectly fine for external websites.
+
+```html
 <a href="https://google.com">
   Google
 </a>
 ```
 
----
-
-# 18. Complete Flow
-
-The basic React Router structure can be visualized like this:
+### Simple rule
 
 ```text
-main.jsx
-   │
-   ↓
-BrowserRouter
-   │
-   ↓
-App.jsx
-   │
-   ↓
-Routes
-   │
-   ├── Route → /
-   │           ↓
-   │          Home
-   │
-   ├── Route → /about
-   │           ↓
-   │          About
-   │
-   └── Route → /contact
-               ↓
-              Contact
+Internal React route
+        ↓
+      Link
+
+
+External website
+        ↓
+        <a>
 ```
 
-Navigation happens through:
+---
+
+# 11. Dynamic Routes
+
+A **Dynamic Route** is a route where part of the URL can change.
+
+Example:
+
+```jsx
+<Route path="/rd/:any" element={<RandomAbout />} />
+```
+
+Here:
+
+```text
+/rd/:any
+    ↑
+Dynamic value
+```
+
+`:any` can have different values.
+
+For example:
+
+```text
+/rd/hello
+/rd/react
+/rd/123
+/rd/about
+```
+
+All of these can match:
+
+```jsx
+<Route path="/rd/:any" element={<RandomAbout />} />
+```
+
+---
+
+# 12. useParams()
+
+We can get the dynamic value using `useParams()`.
+
+```jsx
+import { useParams } from "react-router-dom";
+
+function RandomAbout() {
+  const { any } = useParams();
+
+  return <h1>{any}</h1>;
+}
+```
+
+Suppose the URL is:
+
+```text
+/rd/react
+```
+
+Then:
+
+```jsx
+any
+```
+
+will contain:
+
+```text
+react
+```
+
+Another example:
+
+```text
+URL:
+/rd/hello
+
+any:
+hello
+```
+
+### Mental Model
+
+```text
+/rd/:any
+    ↓
+Dynamic URL value
+    ↓
+useParams()
+    ↓
+Get the value
+```
+
+---
+
+# 13. Nested Routes
+
+A **Nested Route** means a route is placed inside another route.
+
+Example:
+
+```jsx
+<Route path="/products" element={<Product />}>
+  <Route path="men" element={<Men />} />
+</Route>
+```
+
+Here:
+
+```text
+/products
+    ↓
+ Product
+    ↓
+ Outlet
+    ↓
+ men
+    ↓
+ Men
+```
+
+The final URL is:
+
+```text
+/products/men
+```
+
+---
+
+# 14. Parent Route
+
+This is the parent route:
+
+```jsx
+<Route path="/products" element={<Product />}>
+```
+
+It says:
+
+```text
+/products
+    ↓
+Product component
+```
+
+---
+
+# 15. Child Route
+
+This is the child route:
+
+```jsx
+<Route path="men" element={<Men />} />
+```
+
+Because it is inside `/products`, React Router combines them:
+
+```text
+/products
+    +
+men
+    ↓
+/products/men
+```
+
+Notice that we write:
+
+```jsx
+path="men"
+```
+
+not:
+
+```jsx
+path="/men"
+```
+
+For nested routes, the child path is normally written as a **relative path**.
+
+---
+
+# 16. `<Outlet />`
+
+The parent component needs `<Outlet />` to display the child route.
+
+### `Product.jsx`
+
+```jsx
+import { Outlet } from "react-router-dom";
+
+function Product() {
+  return (
+    <div>
+      <h1>Products</h1>
+
+      <Outlet />
+    </div>
+  );
+}
+
+export default Product;
+```
+
+`<Outlet />` tells React Router:
+
+> "Render the child route here."
+
+So when we visit:
+
+```text
+/products/men
+```
+
+React Router renders:
+
+```text
+Product
+   ↓
+<Outlet />
+   ↓
+Men
+```
+
+The result can look like:
+
+```text
+Products
+
+Men Products
+```
+
+---
+
+# 17. What Happens Without `<Outlet />`?
+
+Suppose we have:
+
+```jsx
+function Product() {
+  return (
+    <div>
+      <h1>Products</h1>
+    </div>
+  );
+}
+```
+
+Even though the route matches:
+
+```text
+/products/men
+```
+
+there is no `<Outlet />`.
+
+Therefore, the `Men` component has no place to render inside `Product`.
+
+Add:
+
+```jsx
+<Outlet />
+```
+
+to provide that location.
+
+---
+
+# 18. Dynamic Route vs Nested Route
+
+### Dynamic Route
+
+```jsx
+<Route path="/rd/:any" element={<RandomAbout />} />
+```
+
+Purpose:
+
+> Part of the URL can change.
+
+Examples:
+
+```text
+/rd/hello
+/rd/react
+/rd/123
+```
+
+---
+
+### Nested Route
+
+```jsx
+<Route path="/products" element={<Product />}>
+  <Route path="men" element={<Men />} />
+</Route>
+```
+
+Purpose:
+
+> One route is placed inside another route.
+
+Example:
+
+```text
+/products/men
+```
+
+---
+
+# 19. Complete Example
+
+Here is everything together:
+
+```jsx
+import {
+  Routes,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
+
+function App() {
+  return (
+    <>
+      <nav>
+        <Link to="/">Home</Link>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/products">Products</NavLink>
+      </nav>
+
+      <Routes>
+
+        {/* Basic Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+
+        {/* Dynamic Route */}
+        <Route
+          path="/rd/:any"
+          element={<RandomAbout />}
+        />
+
+        {/* Nested Route */}
+        <Route
+          path="/products"
+          element={<Product />}
+        >
+          <Route
+            path="men"
+            element={<Men />}
+          />
+        </Route>
+
+      </Routes>
+    </>
+  );
+}
+```
+
+And the `Product` component:
+
+```jsx
+import { Outlet } from "react-router-dom";
+
+function Product() {
+  return (
+    <div>
+      <h1>Products</h1>
+
+      <Outlet />
+    </div>
+  );
+}
+```
+
+---
+
+# 20. React Router Mental Model
+
+Try to remember React Router like this:
+
+```text
+BrowserRouter
+      ↓
+Enables routing
+      ↓
+Routes
+      ↓
+Contains Route
+      ↓
+Route
+   ┌──┴───┐
+ path   element
+  ↓        ↓
+URL    Component
+```
+
+For navigation:
 
 ```text
 Link
-   ↓
+ ↓
+Normal internal navigation
+
+
 NavLink
-   ↓
+ ↓
+Navigation + active route
+
+
 useNavigate()
+ ↓
+Navigation using JavaScript
+
+
+redirect()
+ ↓
+Mostly loaders/actions
+```
+
+For dynamic routes:
+
+```text
+/rd/:any
+    ↓
+useParams()
+    ↓
+Get dynamic value
+```
+
+For nested routes:
+
+```text
+/products
+    ↓
+Product
+    ↓
+<Outlet />
+    ↓
+Men
 ```
 
 ---
 
-# 🧠 Quick Revision
+# Quick Cheat Sheet
 
-## Installation
-
-```bash
-npm i react-router-dom
-```
-
-## `main.jsx`
-
-```jsx
-import { BrowserRouter } from "react-router-dom";
-
-<BrowserRouter>
-  <App />
-</BrowserRouter>
-```
-
-`BrowserRouter` enables routing for the application.
+| Feature         | Purpose                            |
+| --------------- | ---------------------------------- |
+| `BrowserRouter` | Enables React Router               |
+| `Routes`        | Container for routes               |
+| `Route`         | Connects URL with component        |
+| `path`          | Defines the URL                    |
+| `element`       | Defines the component              |
+| `Link`          | Internal navigation                |
+| `NavLink`       | Internal navigation + active state |
+| `useNavigate()` | Navigate using JavaScript          |
+| `redirect()`    | Redirect mainly in loaders/actions |
+| `<a>`           | Normal/external browser navigation |
+| `useParams()`   | Get dynamic URL values             |
+| `Outlet`        | Display nested child routes        |
 
 ---
 
-## `App.jsx`
+# Most Important Things to Remember
+
+### 1. Route
 
 ```jsx
-import { Routes, Route } from "react-router-dom";
-
-<Routes>
-
-  <Route
-    path="/"
-    element={<Home />}
-  />
-
-  <Route
-    path="/about"
-    element={<About />}
-  />
-
-</Routes>
+<Route path="/about" element={<About />} />
 ```
-
-`Routes` = collection/container of routes.
-
-`Route` = defines one route.
-
----
-
-## Route
-
-```jsx
-<Route
-  path="/about"
-  element={<About />}
-/>
-```
-
-Remember:
 
 ```text
 path    → WHERE
 element → WHAT
 ```
 
----
-
-## Navigation
-
-### Link
+### 2. Link
 
 ```jsx
-<Link to="/about">
-  About
-</Link>
+<Link to="/about">About</Link>
 ```
 
-Normal internal navigation.
+Used for internal navigation.
 
-### NavLink
+### 3. Dynamic Route
 
 ```jsx
-<NavLink to="/about">
-  About
-</NavLink>
+<Route path="/rd/:any" element={<RandomAbout />} />
 ```
 
-Navigation where we also care about the active route.
-
-### useNavigate
+Use:
 
 ```jsx
-const navigate = useNavigate();
-
-navigate("/about");
+useParams()
 ```
 
-Navigation using JavaScript.
+to get the dynamic value.
 
-### redirect
+### 4. Nested Route
 
 ```jsx
-redirect("/login");
+<Route path="/products" element={<Product />}>
+  <Route path="men" element={<Men />} />
+</Route>
 ```
 
-Redirect from router loaders/actions.
-
-### `<a>`
+Use:
 
 ```jsx
-<a href="https://google.com">
-  Google
-</a>
+<Outlet />
 ```
 
-Normal browser/external navigation.
+inside `Product`.
 
----
-
-# ⭐ Beginner Mental Model
-
-Remember these concepts in this order:
+### Final Mental Model
 
 ```text
-1. BrowserRouter
-       ↓
-   Enables routing
-
-2. Routes
-       ↓
-   Collection of routes
-
-3. Route
-       ↓
-   URL → Component
-
-4. Link
-       ↓
-   Normal internal navigation
-
-5. NavLink
-       ↓
-   Navigation + active route
-
-6. useNavigate
-       ↓
-   Navigation using JavaScript
-
-7. redirect
-       ↓
-   Redirect from loaders/actions
+                React Router
+                     │
+             ┌───────┴────────┐
+             ↓                ↓
+        Navigation          Routes
+        ┌──┬───┐              │
+        │  │   │              ↓
+      Link NavLink       ┌────Route────┐
+           │             │             │
+      useNavigate       path         element
+                         │             │
+                         ↓             ↓
+                        URL        Component
+                                      │
+                         ┌────────────┴───────┐
+                         ↓                    ↓
+                  Dynamic Route          Nested Route
+                    :any                  Outlet
+                      ↓                     ↓
+                 useParams()              Child
 ```
-
-The most important concept to remember is:
-
-```jsx
-<Route
-  path="/about"
-  element={<About />}
-/>
-```
-
-means:
-
-> **"When the URL is `/about`, render the `<About />` component."**

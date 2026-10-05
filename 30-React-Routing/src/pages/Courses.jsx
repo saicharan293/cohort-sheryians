@@ -1,16 +1,13 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
 
-const Product = () => {
+const Courses = () => {
   return (
     <div>
         <h1 className='text-3xl font-bold underline absolute top-1/2 left-1/2 -translate-x-1.5'>
-            Product Guys
+            Courses Guys
         </h1>
-
-        <Outlet />
     </div>
   )
 }
 
-export default Product
+export default Courses
