@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Men from './pages/Men'
 import RandomAbout from './pages/RandomAbout'
 import Courses from './pages/Courses'
+import AnyCourse from './pages/AnyCourse'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About />} />
         <Route path='/courses' element={<Courses />}/>
+        <Route path='/courses/:courseId' element={<AnyCourse />}/>
 
         {/* Dynamic Route  */}
         <Route path='/rd/:any' element={<RandomAbout />}/>
