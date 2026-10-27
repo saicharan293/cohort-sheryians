@@ -2,18 +2,15 @@ import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 
 const App = () => {
-
-  const [theme, setTheme] = useState('');
-
-  const changeTheme = (newTheme) => {
-    setTheme(newTheme)
+  const [Theme, setTheme] = useState('');
+  
+  const changeTheme =(th)=>{
+    setTheme(th);
   }
-
   return (
     <div>
-      <h1>Theme is {theme}</h1>
+      Theme is {Theme}
       <Navbar changeTheme={changeTheme}/>
-
     </div>
   )
 }
