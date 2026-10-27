@@ -1,13 +1,12 @@
 import React from 'react'
 import AllCourses from './AllCourses'
 
-const Section2 = (props) => {
-  console.log(props.courseData);
+const Section2 = () => {
   
   return (
     <div>
       Section2
-      <AllCourses courseData={props.courseData}/>
+      <AllCourses />
     </div>
   )
 }

@@ -2,14 +2,14 @@ import React from 'react'
 import Section1 from './Section1'
 import Section2 from './Section2'
 
-const AllSection = (props) => {
+const AllSection = () => {
   // console.log(props.courseData);
   
   return (
     <div>
       AllSection
       <Section1 />
-      <Section2 courseData ={props.courseData}/>
+      <Section2 />
     </div>
   )
 }

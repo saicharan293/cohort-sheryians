@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const [newTheme, setNewTheme] = useState('')
+
   return (
-    <div>Navbar</div>
+    <div className='nav'>
+    <form onSubmit={
+        (e) =>{
+          e.preventDefault()
+          props.changeTheme(newTheme);
+          setNewTheme('')
+          
+        } 
+        }>
+        <input type="text" placeholder='Enter theme' value={newTheme} onChange={e=>setNewTheme(e.target.value)} />
+        <button>Submit</button>
+      </form>
+    </div>
   )
 }
 

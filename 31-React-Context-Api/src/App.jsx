@@ -1,22 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import AllSection from './components/AllSection'
 
 const App = () => {
 
-  const courseData = {
-    courseName : 'Cohort',
-    instrutor : 'Sarthak',
-    mentor : 'Anu',
-    duration: '6 months'
+  const [theme, setTheme] = useState('');
+
+  const changeTheme = (newTheme) => {
+    setTheme(newTheme)
   }
 
   return (
     <div>
-      <Navbar />
-      <AllSection courseData = {courseData}/>
-      <Footer />
+      <h1>Theme is {theme}</h1>
+      <Navbar changeTheme={changeTheme}/>
+
     </div>
   )
 }
