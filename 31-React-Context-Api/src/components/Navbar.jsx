@@ -1,24 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { UserDataContext } from '../context/UserContext'
 
-const Navbar = (props) => {
-  const [newTheme, setNewTheme] = useState('');
+const Navbar = () => {
+
+  const data = useContext(UserDataContext);
   
   return (
-    <div className='nav'>
-      
-      <form onSubmit={(e)=>{
-        e.preventDefault();
-        setNewTheme('');
-        props.changeTheme(newTheme);
-      }}>
-        <input 
-          type="text" 
-          placeholder='Enter New theme'
-          value={newTheme}
-          onChange={e=>setNewTheme(e.target.value)} 
-        />
-        <button type='submit'>Submit</button>
-      </form>
+    <div className='h-10 w-full bg-emerald-600'>
+      <h1>This is navbar {data}</h1>
     </div>
   )
 }
