@@ -8,7 +8,12 @@ const ProductDetails = () => {
     const param = useParams();
     console.log(param);
 
-    const selectedProduct = productdata.find((elem)=>elem.id == param.id)
+    let selectedProduct = '';
+
+    if(productdata.length>0){
+        selectedProduct = productdata.find((elem)=>elem.id == param.id)
+    }
+    
     console.log(selectedProduct);
     
     
