@@ -1,11 +1,13 @@
 
 
 const express = require('express');
-const notesModel = require("./models/note.model")
+const notesModel = require("./models/note.model");
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // POST /api/notes 
 // re.body = {title, description}
