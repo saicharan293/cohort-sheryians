@@ -3,11 +3,16 @@
 const express = require('express');
 const notesModel = require("./models/note.model");
 const cors = require('cors');
+const path = require('path');
+
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+// Serve static files (CSS, JS, images, etc.) from the public folder.
+app.use(express.static(path.join(__dirname, '../public')))
 
 // POST /api/notes 
 // re.body = {title, description}
@@ -56,6 +61,11 @@ app.patch("/api/notes/:id", async(req, res) => {
     res.status(200).json({
         message : "Note description updated successfully",
     })
+})
+
+// Handle all unmatched routes by serving index.html (React SPA fallback).
+app.use('*name', (req, res) => {
+    res.sendFile(path.join(__dirname,"../public/index.html"));
 })
 
 
