@@ -25,7 +25,7 @@ function App() {
   const [description, setDescription] = useState("");
 
   const fetchNotesData = async() => {
-    axios.get('http://localhost:3000/api/notes')
+    axios.get( `${process.env.VITE_BACKEND_URI}/api/notes`)
     .then((res) => {
       setNotes(res.data.notes)
       setTitle("");

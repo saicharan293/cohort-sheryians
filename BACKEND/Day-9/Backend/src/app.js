@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 // Serve static files (CSS, JS, images, etc.) from the public folder.
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, '../../Frontend/dist')))
 
 // POST /api/notes 
 // re.body = {title, description}
@@ -67,7 +67,7 @@ app.patch("/api/notes/:id", async(req, res) => {
 // https://day-9-wgp4.onrender.com/
 // Handle all unmatched routes by serving index.html (React SPA fallback).
 app.use('*name', (req, res) => {
-    res.sendFile(path.join(__dirname,"../public/index.html"));
+    res.sendFile(path.join(__dirname,"../../Frontend/dist/index.html"));
 })
 
 
