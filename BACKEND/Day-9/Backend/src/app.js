@@ -63,6 +63,8 @@ app.patch("/api/notes/:id", async(req, res) => {
     })
 })
 
+// application to be live on 
+// https://day-9-wgp4.onrender.com/
 // Handle all unmatched routes by serving index.html (React SPA fallback).
 app.use('*name', (req, res) => {
     res.sendFile(path.join(__dirname,"../public/index.html"));
