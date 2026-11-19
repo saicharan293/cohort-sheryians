@@ -25,11 +25,10 @@ function App() {
   const [description, setDescription] = useState("");
 
   const fetchNotesData = async() => {
-    axios.get( `${process.env.VITE_BACKEND_URI}/api/notes`)
+    axios.get(`/api/notes`)
     .then((res) => {
-      setNotes(res.data.notes)
-      setTitle("");
-      setDescription("");
+      setNotes(res.data.notes || [])
+      
     })
     .catch((error) => console.error(error))
   }
@@ -40,21 +39,23 @@ function App() {
     const {title, description} = e.target.elements;
 
     console.log(title.value, description.value);
-    axios.post('http://localhost:3000/api/notes', {
+    axios.post(`/api/notes`, {
       title: title.value, 
       description: description.value
     })
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
+      setTitle("");
+      setDescription("");
       fetchNotesData()
     })
     .catch(error => console.error(error))
   }
 
   function handleDelete(id){
-    axios.delete(`http://localhost:3000/api/notes/${id}`)
+    axios.delete(`/api/notes/${id}`)
     .then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       fetchNotesData();
     })
     .catch(error => console.error(error));
