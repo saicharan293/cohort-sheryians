@@ -23,9 +23,27 @@ function App() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [editId, setEditId] = useState(null);
+  const [editedDescription, setEditedDescription] = useState("");
+
+  function handleUpdateDescription(id){
+    axios.patch(`${import.meta.env.VITE_BACKEND_URI}/api/notes/${id}`,{
+      description: editedDescription
+    })
+    .then(res => {
+      setEditId(null);
+      setEditedDescription("");
+      fetchNotesData();
+    })
+  }
+
+  function handleEdit (note){
+    setEditId(note._id);
+    setEditedDescription(note.description);
+  }
 
   const fetchNotesData = async() => {
-    axios.get(`/api/notes`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/notes/all`)
     .then((res) => {
       setNotes(res.data.notes || [])
       
@@ -39,7 +57,7 @@ function App() {
     const {title, description} = e.target.elements;
 
     console.log(title.value, description.value);
-    axios.post(`/api/notes`, {
+    axios.post(`${import.meta.env.VITE_BACKEND_URI}/api/notes`, {
       title: title.value, 
       description: description.value
     })
@@ -53,7 +71,7 @@ function App() {
   }
 
   function handleDelete(id){
-    axios.delete(`/api/notes/${id}`)
+    axios.delete(`${import.meta.env.VITE_BACKEND_URI}/api/notes/${id}`)
     .then(res => {
       // console.log(res.data);
       fetchNotesData();
@@ -77,7 +95,32 @@ function App() {
           notes.map((note) => {
             return  <div className="note" key={note._id}>
                 <h1>{note.title}</h1>
-                <p>{note.description}</p>
+                {editId === note._id ? (
+                  <>
+                    <input 
+                      type="text" 
+                      value={editedDescription} 
+                      onChange={(e) => {
+                        setEditedDescription(e.target.value)
+                      }} 
+                    />
+                    <button onClick={() => handleUpdateDescription(note._id)}>
+                      Update
+                    </button>
+                    <button onClick={() => {
+                      setEditId(null);
+                      setEditedDescription("");
+                    }}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p>{note.description}</p>
+                    <button onClick={() => handleEdit(note)}>Edit</button>
+                  </>
+                )}
                 <button onClick={() => handleDelete(note._id)}>delete</button>
               </div>
           })

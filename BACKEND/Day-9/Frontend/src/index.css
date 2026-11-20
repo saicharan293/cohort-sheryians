@@ -35,3 +35,8 @@ body {
   padding-inline: 3rem;
   padding-block: 1rem;
 }
+
+button{
+  margin: 2px;
+  padding: 2px;
+}
