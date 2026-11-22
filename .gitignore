@@ -3,3 +3,25 @@ videos
 
 node_modules
 .env
+
+# prompt for creating read me file explaining the code
+
+# I will provide you with a piece of code. Analyze it and create a short, clear README section explaining what the code does.
+
+# Follow these guidelines:
+# - Explain the purpose of the code in simple, non-technical language wherever possible.
+# - Break the explanation into short bullet points.
+# - Mention the main functionality and important steps.
+# - Explain what goes in (input) and what comes out (output), if relevant.
+# - Avoid unnecessary technical jargon and lengthy explanations.
+# - Do not explain every line of code.
+# - Do not make assumptions about functionality that is not present in the code.
+# - Keep the explanation brief, clean, and easy for a beginner to understand.
+
+# **Output format:**
+# - Use a suitable heading.
+# - Write 3–6 concise bullet points.
+# - Keep the entire explanation short enough to fit comfortably in a README.md file.
+
+# Return only the README content in Markdown format, without additional commentary.
+
