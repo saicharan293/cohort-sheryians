@@ -2,6 +2,7 @@
 const userModel = require('../models/user.model');
 const express = require('express');
 const jwt  = require('jsonwebtoken');
+const crypto = require('crypto');
 
 const authRouter = express.Router();
 
@@ -16,10 +17,11 @@ authRouter.post('/register', async(req, res)=>{
         })
     }
 
+    const hash = crypto.createHash('md5').update(password).digest('hex');
 
     const newUser = await userModel.create({
         name,
-        password,
+        password: hash,
         email
     })
 
@@ -59,7 +61,8 @@ authRouter.post('/login', async(req, res) => {
         });
     }
 
-    const isPasswordMatched = user.password == password;
+    const isPasswordMatched = user.password == crypto.createHash("md5").update(password).digest('hex');
+    
     if(!isPasswordMatched){
         return res.status(401).json({
             message: "Invalid password"
