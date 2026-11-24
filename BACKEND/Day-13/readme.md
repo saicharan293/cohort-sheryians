@@ -101,3 +101,53 @@ That middleware will:
 ---
 
 **Key Takeaway:** Registration creates the user account; JWT generation establishes the user's identity for future requests; cookies provide a convenient way to send that token back to the server.
+
+## 3. User Login
+
+`POST /api/auth/login`
+
+**Purpose:**
+
+Allows an already registered user to log in using their email and password.
+
+**Request Body:**
+
+```json
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+**Process:**
+
+1. Receives the user's email and password.
+2. Searches MongoDB for an account matching the provided email.
+3. Returns `404 Not Found` if no matching user exists.
+4. Compares the submitted password with the stored password.
+5. Returns `401 Unauthorized` if the password doesn't match.
+6. Generates a JWT containing the user's ID after successful authentication.
+7. Stores the generated JWT in a cookie named `jwt_token`.
+8. Returns a login success message along with the user's details.
+
+**Possible Responses:**
+
+- `200 OK` – User logged in successfully.
+- `404 Not Found` – No account exists with the provided email.
+- `401 Unauthorized` – Incorrect password.
+
+**Concepts Involved:**
+
+| Concept | Purpose |
+|---|---|
+| Mongoose `findOne()` | Retrieves the registered user using their email. |
+| Password Comparison | Checks whether the submitted password matches the stored password. |
+| JWT (`jwt.sign()`) | Generates a token to identify the logged-in user. |
+| `res.cookie()` | Stores the generated JWT in a response cookie. |
+| HTTP Status Codes | Communicates login success and authentication failures. |
+
+**Real-World Application:**
+
+In an e-commerce application, a registered customer enters their email and password to log in. Once authenticated, the backend generates a JWT and sends it through a cookie. This allows subsequent requests to carry the user's authentication token.
+
+**Key Takeaway:** Registration creates an account, whereas login verifies an existing account and generates a fresh authentication token for the user.
