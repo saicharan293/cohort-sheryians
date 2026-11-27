@@ -2,7 +2,7 @@ FEATURES
 --------
 
 ==> Authentication
-    => register
+    => register (user data save, token generation)
     => login
     => logout (token blacklisting)
     => [OTP based registration]
