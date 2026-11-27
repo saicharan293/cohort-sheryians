@@ -1,0 +1,18 @@
+FEATURES
+--------
+
+==> Authentication
+    => register
+    => login
+    => logout (token blacklisting)
+    => [OTP based registration]
+
+==> POST
+    => Create
+    => can see the feed
+    => like posts (collection type)
+    => Save post
+
+==> users
+    => followers
+    => following
